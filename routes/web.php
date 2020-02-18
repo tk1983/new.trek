@@ -11,6 +11,13 @@
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/detail');
+    // return view('welcome');
 });
+Route::get('/detail', 'TrekController@index')->name('detail.index');
+Route::get('/mountain/new', 'TrekController@create')->name('detail.new');
+Route::post('/mountain/new', 'TrekController@store')->name('detail.store');
+Route::get('/mountain/{id}', 'TrekController@show')->name('detail.detail');
+
