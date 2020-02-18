@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>新しく情報を登録する</h1>
-    {{ Form::open(['route' => 'shop.store']) }}
+    {{ Form::open(['route' => 'detail.store']) }}
 
     <div class='form-group'>
         {{ Form::label('name', '山の名前:') }}
