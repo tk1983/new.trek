@@ -4,11 +4,16 @@
     
 <h1>{{ $details->name }}のページ</h1>
 
-<iframe id='map' src='https://www.google.com/maps/embed/v1/place?key=AIzaSyDTbRzLhZD6CbK8-By6-GpvpJyBfqvp_kQ&amp;q={{ $details->access }}'
+<iframe id='map' src='http://maps.google.com/maps/api/js?key={AIzaSyDTbRzLhZD6CbK8-By6-GpvpJyBfqvp_kQ}&language=ja'
     width='100%'
-    height='320'
+    height='480'
     frameborder='0'>
     </iframe>
+
+{{--
+       <iframe id='map' src='https://www.google.com/maps/embed/v1/place?key=AIzaSyDTbRzLhZD6CbK8-By6-GpvpJyBfqvp_kQ&amp;q={{ $shop->address }}' 
+
+--}}
 
 <table class='table table-striped table-hover'>
     <tr>
