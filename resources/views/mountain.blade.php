@@ -31,6 +31,7 @@
 
         <div>
             <a href={{ route('detail.index') }}>一覧に戻る</a>
+            | <a href={{ route('detail.edit', ['id' => $trek->id])}}>編集</a>
         </div>
 
 @endsection

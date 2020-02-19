@@ -17,4 +17,7 @@
                 </tr>
             @endforeach
         </table>
+        <div>
+            <a href={{ route('detail.new') }} class='btn btn-outline-primary'>新しく登録</a>
+        <div>
 @endsection
