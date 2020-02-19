@@ -3,6 +3,13 @@
 @section('content')
     
 <h1>{{ $details->name }}のページ</h1>
+
+<iframe id='map' src='https://www.google.com/maps/embed/v1/place?key=AIzaSyDTbRzLhZD6CbK8-By6-GpvpJyBfqvp_kQ&amp;q={{ $details->access }}'
+    width='100%'
+    height='320'
+    frameborder='0'>
+    </iframe>
+
 <table class='table table-striped table-hover'>
     <tr>
         <td>山の名前</td>
@@ -33,5 +40,7 @@
             <a href={{ route('detail.index') }}>一覧に戻る</a>
             | <a href={{ route('detail.edit', ['id' => $trek->id])}}>編集</a>
         </div>
-
+        {{ Form::open(['method' => 'delete', 'route' => ['detail.destroy', $trek->id]]) }}
+            {{ Form::submit('削除') }}
+        {{ Form::close() }}
 @endsection

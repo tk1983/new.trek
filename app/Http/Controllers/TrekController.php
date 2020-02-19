@@ -57,7 +57,8 @@ class TrekController extends Controller
     public function show($id)
     {
         $details = Trek::find($id);
-        return view('/mountain', ['details' => $details]);
+        $trek = Trek::find($id);
+        return view('/mountain', ['details' => $details, 'trek' => $trek]);
     }
 
     /**
@@ -98,8 +99,10 @@ class TrekController extends Controller
      * @param  \App\trek  $trek
      * @return \Illuminate\Http\Response
      */
-    public function destroy(trek $trek)
+    public function destroy($id)
     {
-        //
+        $trek = Trek::find($id);
+        $trek->delete();
+        return redirect('/detail');
     }
 }

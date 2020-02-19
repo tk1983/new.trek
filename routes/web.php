@@ -22,3 +22,4 @@ Route::post('/mountain/new', 'TrekController@store')->name('detail.store');
 Route::get('/mountain/{id}', 'TrekController@show')->name('detail.detail');
 Route::get('/mountain/edit/{id}', 'TrekController@edit')->name('detail.edit');
 Route::post('/mountain/update/{id}', 'TrekController@update')->name('detail.update');
+Route::delete('/mountain/{id}', 'TrekController@destroy')->name('detail.destroy');
