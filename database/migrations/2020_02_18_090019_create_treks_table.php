@@ -15,6 +15,12 @@ class CreateTreksTable extends Migration
     {
         Schema::create('treks', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('area');
+            $table->string('difficulty');
+            $table->string('access');
+            $table->string('gear');
+            $table->integer('days');
             $table->timestamps();
         });
     }

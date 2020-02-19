@@ -13,6 +13,8 @@
 {{--
        <iframe id='map' src='https://www.google.com/maps/embed/v1/place?key=AIzaSyDTbRzLhZD6CbK8-By6-GpvpJyBfqvp_kQ&amp;q={{ $shop->address }}' 
 
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTbRzLhZD6CbK8-By6-GpvpJyBfqvp_kQ&callback=initMap"
+
 --}}
 
 <table class='table table-striped table-hover'>
