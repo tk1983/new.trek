@@ -6,21 +6,22 @@
 
     <iframe src="https://maps.google.co.jp/maps?output=embed&q={{ $details->name }}"
         width='100%'
-        height='480'
+        height='320'
         frameborder='0'>
     </iframe>
 
 {{--
-<iframe id='map' src='http://maps.google.com/maps/api/js?key={AIzaSyDTbRzLhZD6CbK8-By6-GpvpJyBfqvp_kQ}&language=ja'
-    width='100%'
-    height='480'
-    frameborder='0'>
-    </iframe>
-
-       <iframe id='map' src='https://www.google.com/maps/embed/v1/place?key=AIzaSyDTbRzLhZD6CbK8-By6-GpvpJyBfqvp_kQ&amp;q={{ $details->name }}' 
-
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTbRzLhZD6CbK8-By6-GpvpJyBfqvp_kQ&callback=initMap"
-
+    <div id="map" style="height: 320px; width: 80%; margin: 2rem auto 0;"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTbRzLhZD6CbK8-By6-GpvpJyBfqvp_kQ"></script>
+<script type="text/javascript">
+    var map = new google.maps.Map(document.getElementById('map'), {
+        center: {
+            lat: -34.397, //緯度を設定
+            lng: 150.644 //経度を設定
+        },
+        zoom: 8 //地図のズームを設定
+    });
+</script>
 --}}
 
 <table class='table table-striped table-hover'>
@@ -50,10 +51,13 @@
 </table>
 
         <div>
-            <a href={{ route('detail.index') }}>一覧に戻る</a>
-            | <a href={{ route('detail.edit', ['id' => $trek->id])}}>編集</a>
+            <a href={{ route('detail.index') }} class='btn btn-outline-primary'>一覧に戻る</a>
+            　|　 <a href={{ route('detail.edit', ['id' => $trek->id])}} class='btn btn-outline-primary'>編集する</a>
         </div>
         {{ Form::open(['method' => 'delete', 'route' => ['detail.destroy', $trek->id]]) }}
-            {{ Form::submit('削除') }}
+            {{ Form::submit('削除する', ['class' => 'btn btn-outline-primary'])}}
         {{ Form::close() }}
+
+<br>
+<br>
 @endsection
