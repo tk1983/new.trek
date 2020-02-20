@@ -37,6 +37,12 @@ class TrekController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [ 
+            'name' => 'required|min:2', 
+            'difficulty' => 'required',
+            'access' => 'required|min:2',
+            'gear' => 'required|min:2'
+        ]);
         $trek = new Trek;
         $trek->name = request('name');
         $trek->area = request('area');
@@ -82,6 +88,12 @@ class TrekController extends Controller
      */
     public function update(Request $request, $id, trek $trek)
     {
+        $this->validate($request, [ 
+            'name' => 'required|min:2', 
+            'difficulty' => 'required',
+            'access' => 'required|min:2',
+            'gear' => 'required|min:2'
+        ]);
         $trek = Trek::find($id);
         $trek->name = request('name');
         $trek->area = request('area');

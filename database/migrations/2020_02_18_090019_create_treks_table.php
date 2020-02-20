@@ -20,7 +20,7 @@ class CreateTreksTable extends Migration
             $table->string('difficulty');
             $table->string('access');
             $table->string('gear');
-            $table->integer('days');
+            $table->string('days');
             $table->timestamps();
         });
     }

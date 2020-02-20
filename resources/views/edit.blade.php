@@ -3,11 +3,16 @@
 @section('content')
     <h1>{{$trek->name}}を編集する</h1>
     {{ Form::model($trek, ['route' => ['detail.update', $trek->id]]) }}
+
+
     <table class='table table-striped table-hover'>
         <tr>
             <td>
     <div class='form-group'>
         {{ Form::label('name', '山の名前:') }}</div>
+        @if ($errors->has('name'))
+        <span class="error">{{ $errors->first('name')}}</span>
+        @endif
     </td>
     <td>
         <div class='form-group'>
@@ -20,12 +25,15 @@
     </td>
     <td>
         <div class='form-group'>
-            {{ Form::select('area', ['北海道','東北','関東','中部','関西','中国','四国','九州・沖縄']) }}
+            {{ Form::select('area', ['北海道' => '北海道', '東北' => '東北', '関東' => '関東', '中部' => '中部', '関西' => '関西', '中国' => '中国', '四国' => '四国', '九州・沖縄' => '九州・沖縄']) }}
         </div>
     </td></tr>
     <tr><td>
     <div class='form-group'>
         {{ Form::label('difficulty', '登山難度:') }}</div>
+        @if ($errors->has('difficulty'))
+        <span class="error">{{ $errors->first('difficulty')}}</span>
+        @endif
     </td>
     <td>
         <div class='form-group'>
@@ -35,6 +43,9 @@
     <tr><td>
     <div class='form-group'>
         {{ Form::label('access', 'アクセス:') }}</div>
+        @if ($errors->has('access'))
+        <span class="error">{{ $errors->first('access')}}</span>
+        @endif
     </td>
     <td>
         <div class='form-group'>
@@ -44,6 +55,9 @@
     <tr><td>
     <div class='form-group'>
         {{ Form::label('gear', '装備:') }}</div>
+        @if ($errors->has('gear'))
+        <span class="error">{{ $errors->first('gear')}}</span>
+        @endif
     </td>
     <td>
         <div class='form-group'>
@@ -56,8 +70,8 @@
     </td>
     <td>
         <div class='form-group'>
-        {{ Form::text('days', null) }}
-    </div>
+            {{ Form::select('days', ['日帰り' => '日帰り', '1泊2日' => '1泊2日', '2泊3日' => '2泊3日', '3泊4日' => '3泊4日', '4泊5日' => '4泊5日', 'その他' => 'その他']) }}
+        </div>
     </td></tr>
 </table>
 
