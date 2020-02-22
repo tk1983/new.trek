@@ -52,12 +52,15 @@
 
         <div>
             <a href={{ route('detail.index') }} class='btn btn-outline-primary'>一覧に戻る</a>
-            　|　 <a href={{ route('detail.edit', ['id' => $trek->id])}} class='btn btn-outline-primary'>編集する</a>
+            @auth
+                @if ($details->user_id === $login_user_id)
+            　|　 <a href={{ route('detail.edit', ['id' => $details->id])}} class='btn btn-outline-primary'>編集する</a>
         </div>
-        {{ Form::open(['method' => 'delete', 'route' => ['detail.destroy', $trek->id]]) }}
+        {{ Form::open(['method' => 'delete', 'route' => ['detail.destroy', $details->id]]) }}
             {{ Form::submit('削除する', ['class' => 'btn btn-outline-primary'])}}
         {{ Form::close() }}
-
+                @endif
+            @endauth
 <br>
 <br>
 @endsection

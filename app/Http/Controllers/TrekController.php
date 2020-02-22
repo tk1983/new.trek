@@ -3,10 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\trek;
+use App\User;
 use Illuminate\Http\Request;
 
 class TrekController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,8 +19,8 @@ class TrekController extends Controller
      */
     public function index()
     {
-        $details = Trek::all();
-        return view('detail', ['details' => $details]);
+        $Treks = Trek::all();
+        return view('detail', ['Treks' => $Treks]);
     }
 
     /**
@@ -43,13 +48,16 @@ class TrekController extends Controller
             'access' => 'required|min:2',
             'gear' => 'required|min:2'
         ]);
+
         $trek = new Trek;
+        $user = \Auth::user();
         $trek->name = request('name');
         $trek->area = request('area');
         $trek->difficulty = request('difficulty');
         $trek->access = request('access');
         $trek->gear = request('gear');
         $trek->days = request('days');
+        $trek->user_id = $user->id;
         $trek->save();
         return redirect()->route('detail.detail', ['id' => $trek->id]);
     }
@@ -63,8 +71,13 @@ class TrekController extends Controller
     public function show($id)
     {
         $details = Trek::find($id);
-        $trek = Trek::find($id);
-        return view('/mountain', ['details' => $details, 'trek' => $trek]);
+        $user = \Auth::user();
+        if ($user) {
+            $login_user_id = $user->id;
+        } else {
+            $login_user_id = "";
+        }
+        return view('/mountain', ['details' => $details, 'login_user_id' => $login_user_id]);
     }
 
     /**
