@@ -26,19 +26,6 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-md-auto align-items-center">
-                          <li>
-                            <a class="btn btn-primary" href="/posts/new">投稿</a>
-                          </li>
-                          <li>
-                            {{-- この行を編集する --}}
-                            <a class="nav-link commonNavIcon profile-icon" href="/users/{{ Auth::user()->id }}"></a>
-                          </li>
-                        </ul>
-                    </div>
-
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
