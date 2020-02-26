@@ -1,7 +1,6 @@
 @extends('layout')
-
 @section('content')
-    
+
 <h1>{{ $details->name }}のページ</h1>
 
     <iframe src="https://maps.google.co.jp/maps?output=embed&q={{ $details->name }}"
@@ -9,7 +8,7 @@
         height='320'
         frameborder='0'>
     </iframe>
-
+    
 {{--
     <div id="map" style="height: 320px; width: 80%; margin: 2rem auto 0;"></div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTbRzLhZD6CbK8-By6-GpvpJyBfqvp_kQ"></script>

@@ -24,6 +24,7 @@ Route::get('/mountain/edit/{id}', 'TrekController@edit')->name('detail.edit');
 Route::post('/mountain/update/{id}', 'TrekController@update')->name('detail.update');
 Route::delete('/mountain/{id}', 'TrekController@destroy')->name('detail.destroy');
 
-Auth::routes();
+Route::get('/users/{user_id}', 'UsersController@show');
 
+Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
