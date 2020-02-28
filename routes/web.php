@@ -25,7 +25,15 @@ Route::post('/mountain/update/{id}', 'TrekController@update')->name('detail.upda
 Route::delete('/mountain/{id}', 'TrekController@destroy')->name('detail.destroy');
 
 Route::get('/users/{user_id}', 'UsersController@show');
-Route::post('/users/{user_id}', 'UsersController@show');
+Route::post('/users/{user_id}', 'UsersController@store');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/sato', function () {
+     return view('sato');
+});
+Route::get('/call', function () {
+    return view('call');
+});
