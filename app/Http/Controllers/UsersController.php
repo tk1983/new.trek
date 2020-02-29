@@ -17,7 +17,6 @@ class UsersController extends Controller
         }
         $users = User::find($user_id);
         return view('users/index', ['is_image' => $is_image, 'users' => $users, 'user_id' => $user_id]);
-
     }
 
 
