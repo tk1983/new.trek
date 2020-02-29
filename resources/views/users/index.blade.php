@@ -4,7 +4,12 @@
     
 <h1>{{ $users->name }}のページ</h1>
 
-dd($user_id);
+@if ($is_image)
+<figure>
+    <img src="/storage/profile_images/{{ Auth::id() }}.jpg" width="100px" height="100px">
+    <figcaption>現在の画像</figcaption>
+</figure>
+@endif
 
 <form method="POST" action="/users/{{ $user_id }}" enctype="multipart/form-data" >
     {{ csrf_field() }}
@@ -27,5 +32,9 @@ dd($user_id);
     {{ session('success') }}
 </div>
 @endif
+
+<br>
+<br>
+
 
 @endsection
