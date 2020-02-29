@@ -15,10 +15,10 @@ class UsersController extends Controller
         return view('users/index', ['users' => $users, 'user_id' => '$user_id']);
     }
 
-    public function store(UsersRequest $request)
+    public function store(UsersRequest $request, $user_id)
     {
         $request->photo->storeAs('public/profile_images', Auth::id() . '.jpg');
 
-        return redirect('profile')->with('success', '新しい写真を登録しました');
+        return redirect('/users/$user_id')->with('success', '新しい写真を登録しました');
     }
 }

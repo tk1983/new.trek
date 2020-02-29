@@ -4,6 +4,8 @@
     
 <h1>{{ $users->name }}のページ</h1>
 
+dd($user_id);
+
 <form method="POST" action="/users/{{ $user_id }}" enctype="multipart/form-data" >
     {{ csrf_field() }}
     <input type="file" name="photo">
