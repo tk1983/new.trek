@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\trek;
 use App\Http\Requests\UsersRequest;
 use App\User;
 use Illuminate\Http\Request;
@@ -11,12 +12,13 @@ class UsersController extends Controller
 {
     public function show($user_id)
     {
+        $Treks = Trek::where('user_id', $user_id)->get();
         $is_image = false;
         if (Storage::disk('local')->exists('public/profile_images/' . Auth::id() . '.jpg')) {
             $is_image = true;
         }
         $users = User::find($user_id);
-        return view('users/index', ['is_image' => $is_image, 'users' => $users, 'user_id' => $user_id]);
+        return view('users/index', ['is_image' => $is_image, 'users' => $users, 'user_id' => $user_id, 'Treks' => $Treks]);
     }
 
 

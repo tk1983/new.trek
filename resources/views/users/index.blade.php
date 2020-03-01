@@ -35,6 +35,23 @@
 
 <br>
 <br>
+<h1>過去の投稿一覧</h1>
+<table class='table table-striped table-hover'>
+    <tr>
+        <th>山の名前</th><th>リンク</th><th>投稿者</th>
+    </tr>
+    @foreach ($Treks as $Trek)
+        <tr>
+            <td>{{ $Trek->name }}</td>
+            <td>
+                <a href={{ route('detail.detail', ['id' =>  $Trek->id]) }}>
+                    {{ $Trek->name }}
+                </a>
+            </td>
+            <td>{{ $Trek->user->name }}</td>
+        </tr>
+    @endforeach
+</table>
 
 
 @endsection

@@ -38,7 +38,7 @@
                         @endif
                     @else
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('users.show', ['user_id' => $user_id])}}">プロフィール</a>
+                        <a class="nav-link" href="{{ route('users.show', ['user_id' => Auth::id()])}}">プロフィール</a>
                     </li>
 
                         <li class="nav-item dropdown">
