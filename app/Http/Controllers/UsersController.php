@@ -13,6 +13,7 @@ class UsersController extends Controller
     public function show($user_id)
     {
         $Treks = Trek::where('user_id', $user_id)->get();
+        
         $is_image = false;
         if (Storage::disk('local')->exists('public/profile_images/' . Auth::id() . '.jpg')) {
             $is_image = true;

@@ -49,8 +49,10 @@ class TrekController extends Controller
             'gear' => 'required|min:2'
         ]);
 
-        $trek = new Trek;
         $user = \Auth::user();
+
+        $trek = new Trek;
+        $trek->image_url = $request->image_url->storeAs('public/post_images', $time.'_'.Auth::user()->id . '.jpg');
         $trek->name = request('name');
         $trek->area = request('area');
         $trek->difficulty = request('difficulty');

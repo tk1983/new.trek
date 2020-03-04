@@ -10,8 +10,15 @@ http://recipes.laravel.jp/recipe/224
     {{ Form::open(['route' => 'detail.store']) }}
 
     <table class='table table-striped table-hover'>
-        <tr>
-            <td>
+        <tr><td>
+            画像:
+    </td>
+    <td>
+        <div class="form-image_url">
+            <input type="file" name="image_url"> 
+        </div>
+        </td></tr>
+        <tr><td>
     <div class='form-group'>
         {{ Form::label('name', '山の名前:') }}</div>
         @if ($errors->has('name'))
