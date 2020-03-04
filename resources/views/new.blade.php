@@ -7,7 +7,7 @@ http://recipes.laravel.jp/recipe/224
 --}}
 @section('content')
     <h1>新しく情報を登録する</h1>
-    {{ Form::open(['route' => 'detail.store']) }}
+    {{ Form::open(['route' => 'detail.store', 'files' => true]) }}
 
     <table class='table table-striped table-hover'>
         <tr><td>
