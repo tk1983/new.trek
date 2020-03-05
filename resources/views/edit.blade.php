@@ -2,10 +2,17 @@
 
 @section('content')
     <h1>{{$trek->name}}を編集する</h1>
-    {{ Form::model($trek, ['route' => ['detail.update', $trek->id]]) }}
-
+    {{ Form::model($trek, ['route' => ['detail.update', $trek->id]], 'files' => true) }}
 
     <table class='table table-striped table-hover'>
+        <tr><td>
+            画像:
+    </td>
+    <td>
+        <div class="form-image_url">
+            <input type="file" name="image_url"> 
+        </div>
+        </td></tr>
         <tr>
             <td>
     <div class='form-group'>

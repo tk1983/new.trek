@@ -51,9 +51,10 @@ class TrekController extends Controller
         ]);
 
         $user = \Auth::user();
+        $time = date("YmdHis");
 
         $trek = new Trek;
-        $trek->image_url = $request->image_url->storeAs('public/post_images', request('updated_at').'_'.Auth::user()->id . '.jpg');
+        $trek->image_url = $request->image_url->storeAs('public/post_images', $time.'_'.Auth::user()->id . '.jpg');
         $trek->name = request('name');
         $trek->area = request('area');
         $trek->difficulty = request('difficulty');
@@ -71,7 +72,7 @@ class TrekController extends Controller
      * @param  \App\trek  $trek
      * @return \Illuminate\Http\Response
      */
-    public function show(trek $trek, $id)
+    public function show(Request $request, trek $trek, $id)
     {
         $details = Trek::find($id);
         $user = \Auth::user();
@@ -80,7 +81,7 @@ class TrekController extends Controller
         } else {
             $login_user_id = "";
         }
-        return view('/mountain', ['details' => $details, 'login_user_id' => $login_user_id, 'image_url' => str_replace('public/', 'storage/', $trek->image_url)]);
+        return view('/mountain', ['details' => $details, 'login_user_id' => $login_user_id, 'image_url' => str_replace('public/', 'storage/', $details->image_url)]);
     }
 
     /**
@@ -89,8 +90,13 @@ class TrekController extends Controller
      * @param  \App\trek  $trek
      * @return \Illuminate\Http\Response
      */
-    public function edit(trek $trek, $id)
+    public function edit(Request $request, trek $trek, $id)
     {
+        $time = date("YmdHis");
+
+        $trek1 = new Trek;
+        $trek1->image_url = $request->image_url->storeAs('public/post_images', $time.'_'.Auth::user()->id . '.jpg');
+
         $trek = Trek::find($id);
         return view ('edit', ['trek' => $trek]);
     }

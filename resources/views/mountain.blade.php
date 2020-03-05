@@ -51,7 +51,7 @@
     </tr>
     <tr>
         <td>日数</td>
-        <td><p>{{ $details->days }}日</p></td>
+        <td><p>{{ $details->days }}</p></td>
 </table>
 
         <div>
