@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>{{$trek->name}}を編集する</h1>
-    {{ Form::model($trek, ['route' => ['detail.update', $trek->id]], 'files' => true) }}
+    {{ Form::model($trek, ['route' => ['detail.update', $trek->id], 'files' => true]) }}
 
     <table class='table table-striped table-hover'>
         <tr><td>

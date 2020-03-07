@@ -5,7 +5,7 @@
 <h1>{{ $details->name }}のページ</h1>
 
 @if ($image_url)
-<img src ="/{{ $image_url }}">
+<img src ="/{{ $image_url }}" width="800px" height="450px">
 @endif
 
     <iframe src="https://maps.google.co.jp/maps?output=embed&q={{ $details->name }}"

@@ -92,11 +92,6 @@ class TrekController extends Controller
      */
     public function edit(Request $request, trek $trek, $id)
     {
-        $time = date("YmdHis");
-
-        $trek1 = new Trek;
-        $trek1->image_url = $request->image_url->storeAs('public/post_images', $time.'_'.Auth::user()->id . '.jpg');
-
         $trek = Trek::find($id);
         return view ('edit', ['trek' => $trek]);
     }
@@ -116,6 +111,11 @@ class TrekController extends Controller
             'access' => 'required|min:2',
             'gear' => 'required|min:2'
         ]);
+        
+        $time = date("YmdHis");
+        $trek1 = new Trek;
+        $trek1->image_url = $request->image_url->storeAs('public/post_images', $time.'_'.Auth::user()->id . '.jpg');
+
         $trek = Trek::find($id);
         $trek->name = request('name');
         $trek->area = request('area');
