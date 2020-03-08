@@ -74,8 +74,6 @@ class TrekController extends Controller
      */
     public function show(Request $request, trek $trek, $id)
     {
-        $treks = Trek::all();
-        
         $details = Trek::find($id);
         $user = \Auth::user();
         if ($user) {
@@ -83,7 +81,7 @@ class TrekController extends Controller
         } else {
             $login_user_id = "";
         }
-        return view('/mountain', ['details' => $details, 'treks' => $treks,  'login_user_id' => $login_user_id, 'image_url' => str_replace('public/', 'storage/', $details->image_url)]);
+        return view('/mountain', ['details' => $details, 'login_user_id' => $login_user_id, 'image_url' => str_replace('public/', 'storage/', $details->image_url)]);
     }
 
     /**

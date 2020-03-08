@@ -1,5 +1,5 @@
 <strong>
-    @foreach ($trek->likes as $like)
+    @foreach ($Trek->likes as $like)
         @if ($loop->count == 1)
           {{ $like->user->name }} </strong> が「いいね！」しました
         @elseif ($loop->last)

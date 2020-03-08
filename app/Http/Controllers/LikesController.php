@@ -21,12 +21,12 @@ class LikesController extends Controller
         $like->user_id = Auth::user()->id;
         $like->save();
 
-        return redirect('/mountain/{$id}');
+        return redirect('/');
     }
     public function destroy(Request $request, $id)
     {
         $like = Like::find($request->like_id);
         $like->delete();
-        return redirect('/mountain/{$id}');
+        return redirect('/');
     }
 }
