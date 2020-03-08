@@ -28,6 +28,34 @@
 </script>
 --}}
 
+@foreach ($treks as $trek) 
+<div class="col-md-8 col-md-2 mx-auto">
+    <div class="card-wrap">
+      <div class="card">
+<div class="card-body">
+    <div class="row parts">
+      <div id="like-icon-post-{{ $trek->id }}">
+        @if ($trek->likedBy(Auth::user())->count() > 0)
+          <a class="loved hide-text" data-remote="true" rel="nofollow" data-method="DELETE" href="/likes/{{ $trek->likedBy(Auth::user())->firstOrFail()->id }}">いいねを取り消す</a>
+        @else
+          <a class="love hide-text" data-remote="true" rel="nofollow" data-method="POST" href="/mountain/{{ $trek->id }}/likes">いいね</a>
+        @endif
+      </div>
+      <a class="comment" href="#"></a>
+    </div>
+    <div id="like-text-post-{{ $trek->id }}">
+    {{--  @include('post.like_text')  --}}
+    </div>
+    <div>
+      <span><strong>{{ $trek->user->name }}</strong></span>
+      <span>{{ $trek->caption }}</span>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+  @endforeach
+
 <table class='table table-striped table-hover'>
     <tr>
         <td>山の名前</td>

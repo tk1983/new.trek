@@ -27,6 +27,9 @@ Route::delete('/mountain/{id}', 'TrekController@destroy')->name('detail.destroy'
 Route::get('/users/{user_id}', 'UsersController@show')->name('users.show');
 Route::post('/users/{user_id}', 'UsersController@store')->name('users.store');
 
+Route::get('/mountain/{id}/likes', 'LikesController@store');
+Route::get('/likes/{like_id}', 'LikesController@destroy');
+
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
