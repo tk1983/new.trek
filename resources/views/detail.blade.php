@@ -1,5 +1,35 @@
 @extends('layout')
 
+<style type="text/css">
+.loved {
+  background-image: url("/images/parts7.png");
+  background-repeat: no-repeat;
+  height: 36px;
+  width: 36px;
+  background-size: 36px !important;
+}
+.love {
+  background-image: url("/images/parts5.png");
+  background-repeat: no-repeat;
+  height: 36px;
+  width: 36px;
+  background-size: 36px !important;
+}
+.hide-text {
+  display: block;
+  overflow: hidden;
+  text-indent: 110%;
+  white-space: nowrap;
+}
+.card-wrap {
+  margin: 40px 0px;
+}
+.parts {
+  margin: 12px 0;
+}
+
+</style>
+
 @section('content')
         <h1>一覧ページ</h1>
         <table class='table table-striped table-hover'>
