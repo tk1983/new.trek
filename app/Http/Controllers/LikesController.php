@@ -19,6 +19,7 @@ class LikesController extends Controller
         $like = new Like;
         $like->post_id = $request->id;
         $like->user_id = Auth::user()->id;
+        $like->trek_id = $id;
         $like->save();
 
         return redirect('/');

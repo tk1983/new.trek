@@ -21,13 +21,14 @@
   text-indent: 110%;
   white-space: nowrap;
 }
+/* 
 .card-wrap {
   margin: 40px 0px;
 }
 .parts {
   margin: 12px 0;
 }
-
+*/
 </style>
 
 @section('content')
