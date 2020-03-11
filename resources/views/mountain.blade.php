@@ -67,4 +67,40 @@
             @endauth
 <br>
 <br>
+                                        <!-- // ==========コメント開始========== -->
+                                 <div class="col-md-8 col-md-2 mx-auto">
+                                    <div class="card-wrap">
+                                      <div class="card">
+                                        <div id="comment-post-{{ $details->id }}">
+                                            @include('post.comment_list2')
+                                          </div>
+                                          <a class="light-color post-time no-text-decoration" href="/mountain/{{ $details->id }}">{{ $details->created_at }}</a>
+                                          <hr>
+  
+                                  @if (! Auth::check())
+                                          <div class="row actions" id="comment-form-post-{{ $details->id }}">
+                                             <form class="w-100" id="new_comment" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓" />
+                                               {{csrf_field()}} 
+                                              <input type="hidden" name="user_id" />
+                                              <input value="{{ $details->id }}" type="hidden" name="$details_id" />
+                                              <input class="form-control comment-input border-0" placeholder="コメントを投稿するにはログインをして下さい" autocomplete="off" type="text" name="comment" />
+                                            </form>
+                                          </div>
+                                  @else
+                                  <div class="row actions" id="comment-form-post-{{ $details->id }}">
+                                    <form class="w-100" id="new_comment" action="/mountain/{{ $details->id }}/comments" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓" />
+                                      {{csrf_field()}} 
+                                     <input value="{{ Auth::user()->id }}" type="hidden" name="user_id" />
+                                     <input value="{{ $details->id }}" type="hidden" name="$trek_id" />
+                                     <input class="form-control comment-input border-0" placeholder="コメント ..." autocomplete="off" type="text" name="comment" />
+                                   </form>
+                                 </div>
+                                 @endif       
+                        </div>
+                    </div>
+                    </div>
+              <!-- // ==========コメント終了========== --> 
+
+<br>
+<br>
 @endsection

@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\trek;
 use App\User;
+use App\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 
 class TrekController extends Controller
 {

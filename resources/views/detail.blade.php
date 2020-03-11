@@ -70,7 +70,6 @@
                                 @else
                                   <a class="love hide-text" data-remote="true" rel="nofollow" data-method="POST" href="/mountain/{{ $Trek->id }}/likes">いいね</a>
                                 @endif
-
                                 @endif
 
                               </div>
