@@ -1,7 +1,10 @@
 @foreach ($Trek->comments as $comment) 
   <div class="mb-2">
+    @if (! Auth::check())
+    @else
     @if ($comment->user->id == Auth::user()->id)
       <a class="delete-comment" data-remote="true" rel="nofollow" data-method="delete" href="/comments/{{ $comment->id }}"></a>
+    @endif
     @endif
     <span>
       <strong>
