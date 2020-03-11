@@ -20,4 +20,8 @@ class trek extends Model
     {
       return Like::where('user_id', $user->id)->where('post_id', $this->id);
     }
+    public function comments()
+    {
+      return $this->hasMany('App\Comment');
+    }
 }

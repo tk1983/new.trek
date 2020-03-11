@@ -30,6 +30,9 @@ Route::post('/users/{user_id}', 'UsersController@store')->name('users.store');
 Route::get('/mountain/{id}/likes', 'LikesController@store');
 Route::get('/likes/{like_id}', 'LikesController@destroy');
 
+Route::post('/mountain/{comment_id}/comments','CommentsController@store');
+Route::get('/comments/{comment_id}', 'CommentsController@destroy');
+
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
