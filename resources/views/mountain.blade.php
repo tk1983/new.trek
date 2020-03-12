@@ -1,5 +1,19 @@
 @extends('layout')
 
+<style type="text/css">
+.delete-comment {
+    background-image: url("/images/parts8.png");
+    background-repeat: no-repeat;
+    width: 11px;
+    height: 11px;
+    float: right;
+    margin: 5px 0 0 10px;
+    background-size: 11px !important;
+  }
+
+</style>
+
+
 @section('content')
     
 <h1>{{ $details->name }}のページ</h1>
