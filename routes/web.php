@@ -31,7 +31,9 @@ Route::get('/mountain/{id}/likes', 'LikesController@store');
 Route::get('/likes/{like_id}', 'LikesController@destroy');
 
 Route::post('/mountain/{comment_id}/comments','CommentsController@store');
+Route::post('/mountain/{comment_id}/comments2','CommentsController@store2');
 Route::get('/comments/{comment_id}', 'CommentsController@destroy');
+Route::get('/comments2/{comment_id}', 'CommentsController@destroy2');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

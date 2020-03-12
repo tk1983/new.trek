@@ -24,10 +24,31 @@ class CommentsController extends Controller
 
         return redirect('/');
     }    
+    public function store2(Request $request, $comment_id)
+    {
+        $comment = new Comment;
+        $comment->comment = $request->comment;
+        $comment->post_id = $request->comment_id;
+        $comment->user_id = Auth::user()->id;
+        $comment->trek_id = $comment_id;
+        $comment->save();
+        $id = $comment_id;
+
+        return redirect('/mountain/{$id}');
+    }  
     public function destroy(Request $request)
     {
         $comment = Comment::find($request->comment_id);
         $comment->delete();
         return redirect('/');
+    }
+    public function destroy2(Request $request, $comment_id)
+    {
+        $comment = Comment::find($request->comment_id);
+        $comment->delete();
+        
+        $id = $comment_id;
+
+        return redirect('/mountain/{$id}');
     }
 }
