@@ -93,7 +93,7 @@
   
                                   @if (! Auth::check())
                                           <div class="row actions" id="comment-form-post-{{ $details->id }}">
-                                             <form class="w-100" id="new_comment" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓" />
+                                             <form class="w-100" id="new_comment" accept-charset="UTF-8" data-remote="true" method="get" action="/mountain/{{ $details->id }}" ><input name="utf8" type="hidden" value="✓" />
                                                {{csrf_field()}} 
                                               <input type="hidden" name="user_id" />
                                               <input value="{{ $details->id }}" type="hidden" name="$details_id" />
