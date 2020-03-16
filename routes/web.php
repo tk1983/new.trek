@@ -30,10 +30,10 @@ Route::post('/users/{user_id}', 'UsersController@store')->name('users.store');
 Route::get('/mountain/{id}/likes', 'LikesController@store');
 Route::get('/likes/{like_id}', 'LikesController@destroy');
 
-Route::post('/mountain/{comment_id}/comments','CommentsController@store');
-Route::post('/mountain/{comment_id}/comments2','CommentsController@store2');
-Route::get('/comments/{comment_id}', 'CommentsController@destroy');
-Route::get('/comments2/{comment_id}', 'CommentsController@destroy2');
+Route::post('/mountain/{trek_id}/comments','CommentsController@store');
+Route::post('/mountain/{trek_id}/comments2','CommentsController@store2');
+Route::get('/comments/{trek_id}', 'CommentsController@destroy');
+Route::get('/comments2/{trek_id}', 'CommentsController@destroy2');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
