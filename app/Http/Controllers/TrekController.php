@@ -83,7 +83,7 @@ class TrekController extends Controller
         } else {
             $login_user_id = "";
         }
-        return view('/mountain', ['details' => $details, 'login_user_id' => $login_user_id, 'image_url' => str_replace('public/', 'storage/', $details->image_url)]);
+        return view('mountain', ['details' => $details, 'login_user_id' => $login_user_id, 'image_url' => str_replace('public/', 'storage/', $details->image_url)]);
     }
 
     /**

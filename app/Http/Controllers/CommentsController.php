@@ -32,9 +32,10 @@ class CommentsController extends Controller
         $comment->user_id = Auth::user()->id;
         $comment->trek_id = $comment_id;
         $comment->save();
+        
         $id = $comment_id;
 
-        return redirect('/mountain/{$id}');
+        return redirect()->route('detail.detail', ['id' => $id]);
     }  
     public function destroy(Request $request)
     {
@@ -49,6 +50,6 @@ class CommentsController extends Controller
         
         $id = $comment_id;
 
-        return redirect('/mountain/{$id}');
+        return redirect()->route('detail.detail', ['id' => $id]);
     }
 }
