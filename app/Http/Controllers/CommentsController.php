@@ -17,7 +17,6 @@ class CommentsController extends Controller
     {
         $comment = new Comment;
         $comment->comment = $request->comment;
-        $comment->post_id = $request->trek_id;
         $comment->user_id = Auth::user()->id;
         $comment->trek_id = $trek_id;
         $comment->save();
@@ -28,7 +27,6 @@ class CommentsController extends Controller
     {
         $comment = new Comment;
         $comment->comment = $request->comment;
-        $comment->post_id = $request->trek_id;
         $comment->user_id = Auth::user()->id;
         $comment->trek_id = $trek_id;
         $comment->save();
@@ -46,7 +44,7 @@ class CommentsController extends Controller
     }
     public function destroy2(Request $request, $trek_id)
     {
-        $comment = Comment::find($request->trek_id);
+        $comment = Comment::find($trek_id);
         $comment->delete();
         
         $id = $trek_id;

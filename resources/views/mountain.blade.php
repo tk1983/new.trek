@@ -81,10 +81,33 @@
             @endauth
 <br>
 <br>
-                                        <!-- // ==========コメント開始========== -->
+                                <!-- // ==========いいね開始========== -->
                                  <div class="col-md-8 col-md-2 mx-auto">
                                     <div class="card-wrap">
                                       <div class="card">
+                                        <div class="card-body">
+                                            <div class="row parts">
+                                              <div id="like-icon-post-{{ $details->id }}">
+                
+                                                @if (! Auth::check())
+                                                  <a class="love hide-text" data-remote="true" rel="nofollow" data-method="POST" href="{{ route('login') }}">いいね</a>
+                                                @else
+                
+                                                @if ($details->likedBy(Auth::user())->count() > 0)
+                                                  <a class="loved hide-text" data-remote="true" rel="nofollow" data-method="DELETE" href="/likes/{{ $details->likedBy(Auth::user())->firstOrFail()->id }}">いいねを取り消す</a>
+                                                @else
+                                                  <a class="love hide-text" data-remote="true" rel="nofollow" data-method="POST" href="/mountain/{{ $details->id }}/likes">いいね</a>
+                                                @endif
+                                                @endif
+                
+                                              </div>
+                                              <a class="comment" href="#"></a>
+                                            </div>
+                                            <div id="like-text-post-{{ $details->id }}">
+                                              @include('post.like_text')  
+                                            </div>
+                                            <!-- // ==========いいね終了========== --> 
+                                        <!-- // ==========コメント開始========== -->
                                         <div id="comment-post-{{ $details->id }}">
                                             @include('post.comment_list2')
                                           </div>
