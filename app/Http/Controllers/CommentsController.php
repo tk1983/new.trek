@@ -44,11 +44,10 @@ class CommentsController extends Controller
     }
     public function destroy2(Request $request, $trek_id)
     {
-        $comment = Comment::find($trek_id);
+        $comment = Comment::find($comment->id);
         $comment->delete();
         
         $id = $trek_id;
-
         return redirect()->route('detail.detail', ['id' => $id]);
     }
 }

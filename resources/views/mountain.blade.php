@@ -1,6 +1,26 @@
 @extends('layout')
 
 <style type="text/css">
+.loved {
+  background-image: url("/images/parts7.png");
+  background-repeat: no-repeat;
+  height: 36px;
+  width: 36px;
+  background-size: 36px !important;
+}
+.love {
+  background-image: url("/images/parts5.png");
+  background-repeat: no-repeat;
+  height: 36px;
+  width: 36px;
+  background-size: 36px !important;
+}
+.hide-text {
+  display: block;
+  overflow: hidden;
+  text-indent: 110%;
+  white-space: nowrap;
+}
 .delete-comment {
     background-image: url("/images/parts8.png");
     background-repeat: no-repeat;
@@ -104,7 +124,7 @@
                                               <a class="comment" href="#"></a>
                                             </div>
                                             <div id="like-text-post-{{ $details->id }}">
-                                              @include('post.like_text')  
+                                              @include('post.like_text2')  
                                             </div>
                                             <!-- // ==========いいね終了========== --> 
                                         <!-- // ==========コメント開始========== -->
