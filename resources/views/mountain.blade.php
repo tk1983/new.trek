@@ -114,9 +114,9 @@
                                                 @else
                 
                                                 @if ($details->likedBy(Auth::user())->count() > 0)
-                                                  <a class="loved hide-text" data-remote="true" rel="nofollow" data-method="DELETE" href="/likes/{{ $details->likedBy(Auth::user())->firstOrFail()->id }}">いいねを取り消す</a>
+                                                  <a class="loved hide-text" data-remote="true" rel="nofollow" data-method="DELETE" href="/likes2/{{ $details->likedBy(Auth::user())->firstOrFail()->id }}">いいねを取り消す</a>
                                                 @else
-                                                  <a class="love hide-text" data-remote="true" rel="nofollow" data-method="POST" href="/mountain/{{ $details->id }}/likes">いいね</a>
+                                                  <a class="love hide-text" data-remote="true" rel="nofollow" data-method="POST" href="/mountain/{{ $details->id }}/likes2">いいね</a>
                                                 @endif
                                                 @endif
                 

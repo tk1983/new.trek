@@ -23,10 +23,26 @@ class LikesController extends Controller
 
         return redirect('/');
     }
+    public function store2(Request $request, $id)
+    {
+        $like = new Like;
+        $like->user_id = Auth::user()->id;
+        $like->trek_id = $id;
+        $like->save();
+
+        return redirect()->route('detail.detail', ['id' => $id]);
+    }
     public function destroy(Request $request, $id)
     {
         $like = Like::find($request->like_id);
         $like->delete();
         return redirect('/');
+    }
+    public function destroy2(Request $request, $like_id, $id)
+    {
+        $like = Like::find($request->like_id);
+        $like->delete();
+        
+        return redirect()->route('detail.detail', ['id' => $id]);
     }
 }

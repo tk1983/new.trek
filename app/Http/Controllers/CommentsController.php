@@ -35,19 +35,20 @@ class CommentsController extends Controller
 
         return redirect()->route('detail.detail', ['id' => $id]);
     }  
-    public function destroy(Request $request)
+    public function destroy(Request $request, $comment_id)
     {
-        $comment = Comment::find($request->trek_id);
+        $comment = Comment::find($comment_id);
         $comment->delete();
         
         return redirect('/');
     }
-    public function destroy2(Request $request, $trek_id)
+    public function destroy2(Request $request, $comment_id)
     {
-        $comment = Comment::find($comment->id);
+        $comment = Comment::find($comment_id);
         $comment->delete();
         
-        $id = $trek_id;
+        $id = $comment->trek_id;
+        
         return redirect()->route('detail.detail', ['id' => $id]);
     }
 }
