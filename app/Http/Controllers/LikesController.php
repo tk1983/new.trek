@@ -40,6 +40,7 @@ class LikesController extends Controller
     }
     public function destroy2(Request $request, $like_id, $id)
     {
+        dd($like_id);
         $like = Like::find($request->like_id);
         $like->delete();
         
