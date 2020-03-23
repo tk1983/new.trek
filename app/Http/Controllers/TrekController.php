@@ -7,7 +7,7 @@ use App\User;
 use App\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Storage;
 
 class TrekController extends Controller
 {
@@ -22,8 +22,14 @@ class TrekController extends Controller
      */
     public function index()
     {
-        $Treks = Trek::all();
-        return view('detail', ['Treks' => $Treks]);
+        $Treks = Trek::paginate(6);
+
+        $is_image = false;
+        if (Storage::disk('local')->exists('public/profile_images/' . Auth::id() . '.jpg')) {
+            $is_image = true;
+        }
+
+        return view('detail', ['is_image' => $is_image, 'Treks' => $Treks]);
     }
 
     /**
@@ -83,7 +89,13 @@ class TrekController extends Controller
         } else {
             $login_user_id = "";
         }
-        return view('mountain', ['details' => $details, 'login_user_id' => $login_user_id, 'image_url' => str_replace('public/', 'storage/', $details->image_url)]);
+
+        $is_image = false;
+        if (Storage::disk('local')->exists('public/profile_images/' . Auth::id() . '.jpg')) {
+            $is_image = true;
+        }
+
+        return view('mountain', ['is_image' => $is_image, 'details' => $details, 'login_user_id' => $login_user_id, 'image_url' => str_replace('public/', 'storage/', $details->image_url)]);
     }
 
     /**

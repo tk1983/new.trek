@@ -119,6 +119,9 @@
         </table>
         <div>
             <a href={{ route('detail.new') }} class='btn btn-outline-primary'>新しく登録</a>
-        <div>
+        </div>
+        <div class="d-flex justify-content-center">
+          {{ $Treks->links() }}
+      </div>
 <br><br><br>
 @endsection

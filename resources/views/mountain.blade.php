@@ -132,6 +132,7 @@
                                             @include('post.comment_list2')
                                           </div>
                                           <a class="light-color post-time no-text-decoration" href="/mountain/{{ $details->id }}">{{ $details->created_at }}</a>
+
                                           <hr>
   
                                   @if (! Auth::check())

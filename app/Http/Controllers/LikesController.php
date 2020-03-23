@@ -38,12 +38,13 @@ class LikesController extends Controller
         $like->delete();
         return redirect('/');
     }
-    public function destroy2(Request $request, $like_id, $id)
+    public function destroy2(Request $request, $like_id)
     {
-        dd($like_id);
         $like = Like::find($request->like_id);
         $like->delete();
         
+        $id = $like->trek_id;
+
         return redirect()->route('detail.detail', ['id' => $id]);
     }
 }
