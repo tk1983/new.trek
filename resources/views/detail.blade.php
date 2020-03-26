@@ -42,6 +42,11 @@
 
 @section('content')
         <h1>一覧ページ</h1>
+        <select name="narabi">
+          <option value="asc">日付昇順で並び変え</option>
+          <option value="desc">日付降順で並び変え</option>
+        </select>
+
         <table class='table table-striped table-hover'>
             <tr>
                 <th>山の名前</th><th>リンク</th><th>投稿者</th>

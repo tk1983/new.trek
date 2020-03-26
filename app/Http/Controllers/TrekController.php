@@ -20,9 +20,9 @@ class TrekController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $Treks = Trek::paginate(6);
+        $Treks = Trek::order($request->narabi)->paginate(6);
 
         $is_image = false;
         if (Storage::disk('local')->exists('public/profile_images/' . Auth::id() . '.jpg')) {

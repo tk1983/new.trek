@@ -24,4 +24,15 @@ class trek extends Model
     {
       return $this->hasMany('App\Comment');
     }
+    
+    public static function order($select)
+    {
+    if($select == 'asc'){
+        return self::orderBy('updated_at', 'asc')->get();
+    } elseif($select == 'desc') {
+        return self::orderBy('updated_at', 'desc')->get();
+    } else {
+        return self;
+    }
+    }
 }
