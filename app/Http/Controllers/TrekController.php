@@ -22,7 +22,10 @@ class TrekController extends Controller
      */
     public function index(Request $request)
     {
-        $Treks = Trek::order($request->narabi)->paginate(6);
+        /**
+        $Treks = Trek::orderBy('updated_at', 'DESC')->paginate(6);
+        */
+        $Treks = Trek::order($request->narabi);
 
         $is_image = false;
         if (Storage::disk('local')->exists('public/profile_images/' . Auth::id() . '.jpg')) {
@@ -52,6 +55,7 @@ class TrekController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [ 
+            'image_url' => 'required',
             'name' => 'required|min:2', 
             'difficulty' => 'required',
             'access' => 'required|min:2',
@@ -120,6 +124,7 @@ class TrekController extends Controller
     public function update(Request $request, $id, trek $trek)
     {
         $this->validate($request, [ 
+            'image_url' => 'required',
             'name' => 'required|min:2', 
             'difficulty' => 'required',
             'access' => 'required|min:2',

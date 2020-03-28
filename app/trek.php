@@ -32,7 +32,7 @@ class trek extends Model
     } elseif($select == 'desc') {
         return self::orderBy('updated_at', 'desc')->get();
     } else {
-        return self;
+        return self::all();
     }
     }
 }
