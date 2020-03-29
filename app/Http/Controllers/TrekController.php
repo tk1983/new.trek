@@ -22,9 +22,6 @@ class TrekController extends Controller
      */
     public function index(Request $request)
     {
-        /**
-        $Treks = Trek::orderBy('updated_at', 'DESC')->paginate(6);
-        */
         $Treks = Trek::order($request->narabi);
 
         $is_image = false;

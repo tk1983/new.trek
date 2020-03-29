@@ -28,9 +28,9 @@ class trek extends Model
     public static function order($select)
     {
     if($select == 'asc'){
-        return self::orderBy('updated_at', 'asc')->get();
+        return self::orderBy('updated_at', 'asc')->paginate(6);
     } elseif($select == 'desc') {
-        return self::orderBy('updated_at', 'desc')->get();
+        return self::orderBy('updated_at', 'desc')->paginate(6);
     } else {
         return self::all();
     }

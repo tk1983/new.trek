@@ -42,11 +42,26 @@
 
 @section('content')
         <h1>一覧ページ</h1>
-        <select name="narabi">
-          <option value="asc">日付昇順で並び変え</option>
-          <option value="desc">日付降順で並び変え</option>
-        </select>
-
+        <form method="GET" action="/detail">
+          <select name="narabi">
+            <option value="asc">日付昇順で並び変え</option>
+            <option value="desc">日付降順で並び変え</option>
+          </select>
+          <input type="submit" value="送信">
+      </form>
+{{--
+      {{ Form::open(['method' => 'get']) }}
+    {{ csrf_field() }}
+    <div class='form-group'>
+        {{ Form::label('keyword', 'キーワード:') }}
+        {{ Form::text('keyword', null, ['class' => 'form-control']) }}
+    </div>
+    <div class='form-group'>
+        {{ Form::submit('検索', ['class' => 'btn btn-outline-primary'])}}
+        <a href={{ route('detail.index') }}>クリア</a>
+    </div>
+      {{ Form::close() }}
+--}}
         <table class='table table-striped table-hover'>
             <tr>
                 <th>山の名前</th><th>リンク</th><th>投稿者</th>
@@ -125,6 +140,8 @@
         <div>
             <a href={{ route('detail.new') }} class='btn btn-outline-primary'>新しく登録</a>
         </div>
-
+        <div class="d-flex justify-content-center">
+          {{ $Treks->links() }}
+        </div>
 <br><br><br>
 @endsection
