@@ -18,9 +18,9 @@ class CreateTreksTable extends Migration
             $table->string('name');
             $table->string('area');
             $table->string('difficulty');
-            $table->string('access');
-            $table->string('gear');
+            $table->string('address');
             $table->string('days');
+            $table->string('comment');
             $table->timestamps();
         });
     }

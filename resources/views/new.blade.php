@@ -48,7 +48,7 @@
     </td></tr>
     <tr><td>
     <div class='form-group'>
-        {{ Form::label('access', 'アクセス:') }}</div>
+        {{ Form::label('access', '住所:') }}</div>
         @if ($errors->has('access'))
         <span class="error">{{ $errors->first('access')}}</span>
         @endif
@@ -60,18 +60,6 @@
     </td></tr>
     <tr><td>
     <div class='form-group'>
-        {{ Form::label('gear', '装備:') }}</div>
-        @if ($errors->has('gear'))
-        <span class="error">{{ $errors->first('gear')}}</span>
-        @endif
-    </td>
-    <td>
-        <div class='form-group'>
-        {{ Form::text('gear', null) }}
-    </div>
-    </td></tr>
-    <tr><td>
-    <div class='form-group'>
         {{ Form::label('days', '日数:') }}</div>
     </td>
     <td>
@@ -79,6 +67,18 @@
             {{ Form::select('days', ['日帰り' => '日帰り', '1泊2日' => '1泊2日', '2泊3日' => '2泊3日', '3泊4日' => '3泊4日', '4泊5日' => '4泊5日', 'その他' => 'その他']) }}
         </div>
     </td></tr>
+    <tr><td>
+        <div class='form-group'>
+            {{ Form::label('gear', 'コメント:') }}</div>
+            @if ($errors->has('gear'))
+            <span class="error">{{ $errors->first('gear')}}</span>
+            @endif
+        </td>
+        <td>
+            <div class='form-group'>
+            {{ Form::text('gear', null) }}
+        </div>
+        </td></tr>
 </table>
 
     <div class="form-group">

@@ -36,13 +36,13 @@
 
 @section('content')
     
-<h1>{{ $details->name }}のページ</h1>
+<h1>山の名前：{{ $details->name }}</h1>
 
 @if ($image_url)
-<img src ="/{{ $image_url }}" width="800px" height="450px">
+<img src ="/{{ $image_url }}" width="100%" height="auto">
 @endif
 
-    <iframe src="https://maps.google.co.jp/maps?output=embed&q={{ $details->name }}"
+    <iframe src="https://maps.google.co.jp/maps?output=embed&q={{ $details->access }}"
         width='100%'
         height='320'
         frameborder='0'>
@@ -76,16 +76,16 @@
         <td><p>{{ $details->difficulty }}</p></td>
     </tr>            
     <tr>
-        <td>アクセス</td>
+        <td>住所</td>
         <td><p>{{ $details->access }}</p></td>
     </tr>            
     <tr>
-        <td>装備</td>
+      <td>日数</td>
+      <td><p>{{ $details->days }}</p></td>
+    <tr>
+        <td>コメント</td>
         <td><p>{{ $details->gear }}</p></td>
     </tr>
-    <tr>
-        <td>日数</td>
-        <td><p>{{ $details->days }}</p></td>
 </table>
 
         <div>

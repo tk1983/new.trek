@@ -1,20 +1,40 @@
 @extends('layout')
 
+<style type="text/css">
+.gorgias-loaded{
+  padding: 0;
+}
+.bg-image {
+  background-image: url('../../top.jpg');
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+.bg-mask {
+  height: 100%;
+  background: rgba(255,255,255,0.5);
+}
+</style>
+
+<div class="bg-image">
+    <div class="bg-mask">
+
 @section('content')
     
+<br><br><br><br>
 <h1>{{ $users->name }}のページ</h1>
 
 @if ($is_image)
 <figure>
     <img src="/storage/profile_images/{{ Auth::id() }}.jpg" width="100px" height="100px">
-    <figcaption>現在の画像</figcaption>
+    <figcaption>現在のプロフィール画像</figcaption>
 </figure>
 @endif
 
 <form method="POST" action="/users/{{ $user_id }}" enctype="multipart/form-data" >
     {{ csrf_field() }}
-    <input type="file" name="photo">
-    <input type="submit">
+    <input class='btn btn-primary' type="file" name="photo">
+    <input class='btn btn-primary' type="submit">
 </form>
 
 @if ($errors->any())
@@ -38,11 +58,10 @@
 <h1>過去の投稿一覧</h1>
 <table class='table table-striped table-hover'>
     <tr>
-        <th>山の名前</th><th>リンク</th><th>投稿者</th>
+        <th>山の名前</th><th>投稿者</th>
     </tr>
     @foreach ($Treks as $Trek)
         <tr>
-            <td>{{ $Trek->name }}</td>
             <td>
                 <a href={{ route('detail.detail', ['id' =>  $Trek->id]) }}>
                     {{ $Trek->name }}
@@ -52,6 +71,7 @@
         </tr>
     @endforeach
 </table>
-
+</div>
+</div>
 
 @endsection
