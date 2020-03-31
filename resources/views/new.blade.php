@@ -1,10 +1,5 @@
 @extends('layout')
 
-{{--
-    フォームに関して
-http://recipes.laravel.jp/recipe/224
-属性を追加する場合は、第二引数に配列を利用しなければなりません
---}}
 @section('content')
     <h1>新しく情報を登録する</h1>
     {{ Form::open(['route' => 'detail.store', 'files' => true]) }}
