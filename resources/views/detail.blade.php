@@ -58,7 +58,7 @@ div.container{
 }
 */
 .bg-image {
-  background-image: url('../../top.jpg');
+  background-image: url('../../public/images/top.jpg');
   width: 1920px;
   height: 100%;
   background-size: cover;
