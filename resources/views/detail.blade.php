@@ -58,7 +58,7 @@ div.container{
 }
 */
 .bg-image {
-  background-image: url('../../public/images/top.jpg');
+  background-image: url('../../images/top.jpg');
   width: 1920px;
   height: 100%;
   background-size: cover;
@@ -112,7 +112,9 @@ div.container{
       </a>
       投稿者：{{ $Trek->user->name }}
 
-
+      @if ($image_url)
+      <img src ="/{{ $image_url }}" width="100%" height="auto">
+      @endif
 
     <!-- // ==========いいね開始========== -->
 

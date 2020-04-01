@@ -22,6 +22,7 @@ class TrekController extends Controller
      */
     public function index(Request $request)
     {
+        $details = Trek::find($id);
         $Treks = Trek::order($request->narabi);
 
         $is_image = false;
@@ -29,7 +30,7 @@ class TrekController extends Controller
             $is_image = true;
         }
 
-        return view('detail', ['is_image' => $is_image, 'Treks' => $Treks]);
+        return view('detail', ['is_image' => $is_image, 'Treks' => $Treks, 'image_url' => str_replace('public/', 'storage/', $details->image_url)]);
     }
 
     /**

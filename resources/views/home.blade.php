@@ -1,4 +1,5 @@
-@extends('layouts.app')
+@extends('../layout')
+<meta http-equiv="refresh" content="5; URL=/detail">
 
 @section('content')
 <div class="container">
@@ -14,7 +15,8 @@
                         </div>
                     @endif
 
-                    ログインしました。
+                    ログインしました。<br>
+                    5秒後に、自動的にトップページへリダイレクトします。
                 </div>
             </div>
         </div>

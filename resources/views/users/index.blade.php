@@ -5,7 +5,7 @@
   padding: 0;
 }
 .bg-image {
-  background-image: url('../../top.jpg');
+  background-image: url('../../images/top.jpg');
   width: 100%;
   height: 100%;
   background-size: cover;

@@ -30,7 +30,9 @@
     margin: 5px 0 0 10px;
     background-size: 11px !important;
   }
-
+.form{
+  display:inline-block;
+}
 </style>
 
 
@@ -94,9 +96,11 @@
                 @if ($details->user_id === $login_user_id)
             　|　 <a href={{ route('detail.edit', ['id' => $details->id])}} class='btn btn-outline-primary'>編集する</a>
         </div>
+        <div class="form">
         {{ Form::open(['method' => 'delete', 'route' => ['detail.destroy', $details->id]]) }}
             {{ Form::submit('削除する', ['class' => 'btn btn-outline-primary'])}}
         {{ Form::close() }}
+        </div>
                 @endif
             @endauth
 <br>
