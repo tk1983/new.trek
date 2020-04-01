@@ -22,7 +22,9 @@ class TrekController extends Controller
      */
     public function index(Request $request)
     {
-        $details = Trek::find($id);
+        $collection = Trek::all();
+        $plucked = $collection->pluck('image_url');
+
         $Treks = Trek::order($request->narabi);
 
         $is_image = false;
@@ -30,7 +32,7 @@ class TrekController extends Controller
             $is_image = true;
         }
 
-        return view('detail', ['is_image' => $is_image, 'Treks' => $Treks, 'image_url' => str_replace('public/', 'storage/', $details->image_url)]);
+        return view('detail', ['is_image' => $is_image, 'Treks' => $Treks, 'images_url' => str_replace('public/', 'storage/', $plucked)]);
     }
 
     /**
@@ -130,10 +132,10 @@ class TrekController extends Controller
         ]);
 
         $time = date("YmdHis");
-        $trek1 = new Trek;
-        $trek1->image_url = $request->image_url->storeAs('public/post_images', $time.'_'.Auth::user()->id . '.jpg');
 
         $trek = Trek::find($id);
+        $trek->image_url = $request->image_url->storeAs('public/post_images', $time.'_'.Auth::user()->id . '.jpg');
+
         $trek->name = request('name');
         $trek->area = request('area');
         $trek->difficulty = request('difficulty');

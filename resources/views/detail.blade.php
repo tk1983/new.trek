@@ -110,8 +110,10 @@ div.container{
       山の名前：<a href={{ route('detail.detail', ['id' =>  $Trek->id]) }}>
         {{ $Trek->name }}
       </a>
-      投稿者：{{ $Trek->user->name }}
+      　投稿者：{{ $Trek->user->name }}
 
+      
+  @foreach ($images_url as $image_url)
       @if ($image_url)
       <img src ="/{{ $image_url }}" width="100%" height="auto">
       @endif
@@ -172,6 +174,7 @@ div.container{
     @if($loop->iteration %2 ==0)
     </tr>
     @endif
+    @endforeach
     @endforeach
   </table>
 

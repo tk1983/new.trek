@@ -30,14 +30,29 @@
     margin: 5px 0 0 10px;
     background-size: 11px !important;
   }
-.form{
-  display:inline-block;
+  .gorgias-loaded{
+  padding: 0;
+}
+  .bg-image {
+  background-image: url('../../images/top.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+.bg-mask {
+  height: 100%;
+  background: rgba(255,255,255,0.5);
 }
 </style>
 
+<div class="bg-image">
+  <div class="bg-mask">
 
 @section('content')
-    
+<br><br><br><br>
+
 <h1>山の名前：{{ $details->name }}</h1>
 
 @if ($image_url)
@@ -90,13 +105,13 @@
     </tr>
 </table>
 
+<div style="display:inline-flex">
         <div>
             <a href={{ route('detail.index') }} class='btn btn-outline-primary'>一覧に戻る</a>
             @auth
                 @if ($details->user_id === $login_user_id)
-            　|　 <a href={{ route('detail.edit', ['id' => $details->id])}} class='btn btn-outline-primary'>編集する</a>
+            　|　 <a href={{ route('detail.edit', ['id' => $details->id])}} class='btn btn-outline-primary'>編集する</a>　|　 
         </div>
-        <div class="form">
         {{ Form::open(['method' => 'delete', 'route' => ['detail.destroy', $details->id]]) }}
             {{ Form::submit('削除する', ['class' => 'btn btn-outline-primary'])}}
         {{ Form::close() }}
@@ -163,6 +178,8 @@
                     </div>
               <!-- // ==========コメント終了========== --> 
 
+            </div>
+          </div>
 <br>
 <br>
 @endsection
