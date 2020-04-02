@@ -47,9 +47,10 @@ h1{
 .gorgias-loaded{
   padding: 0;
 }
-div.container{
+.container{
   padding: 0;
   margin: 0;
+  border: 0;
 }
 
 /* 
@@ -59,13 +60,16 @@ div.container{
 */
 .bg-image {
   background-image: url('../../images/top.jpg');
-  width: 1920px;
+  width: 100%;
   height: 100%;
   background-size: cover;
 }
 .bg-mask {
   height: 100%;
   background: rgba(255,255,255,0.5);
+}
+td {
+  width: 400px;
 }
 </style>
 
@@ -112,10 +116,8 @@ div.container{
       </a>
       　投稿者：{{ $Trek->user->name }}
 
-      
-  @foreach ($images_url as $image_url)
-      @if ($image_url)
-      <img src ="/{{ $image_url }}" width="100%" height="auto">
+      @if ($Trek->image_url)
+      <img src={{ str_replace('public/', 'storage/', $Trek->image_url) }} width="100%" height="auto">
       @endif
 
     <!-- // ==========いいね開始========== -->
@@ -174,7 +176,6 @@ div.container{
     @if($loop->iteration %2 ==0)
     </tr>
     @endif
-    @endforeach
     @endforeach
   </table>
 

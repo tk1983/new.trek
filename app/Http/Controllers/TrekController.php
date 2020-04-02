@@ -22,9 +22,6 @@ class TrekController extends Controller
      */
     public function index(Request $request)
     {
-        $collection = Trek::all();
-        $plucked = $collection->pluck('image_url');
-
         $Treks = Trek::order($request->narabi);
 
         $is_image = false;
@@ -32,7 +29,7 @@ class TrekController extends Controller
             $is_image = true;
         }
 
-        return view('detail', ['is_image' => $is_image, 'Treks' => $Treks, 'images_url' => str_replace('public/', 'storage/', $plucked)]);
+        return view('detail', ['is_image' => $is_image, 'Treks' => $Treks]);
     }
 
     /**
@@ -87,6 +84,7 @@ class TrekController extends Controller
     public function show(Request $request, trek $trek, $id)
     {
         $details = Trek::find($id);
+
         $user = \Auth::user();
         if ($user) {
             $login_user_id = $user->id;

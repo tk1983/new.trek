@@ -45,6 +45,9 @@
   height: 100%;
   background: rgba(255,255,255,0.5);
 }
+td {
+  width: 400px;
+}
 </style>
 
 <div class="bg-image">
