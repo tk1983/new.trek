@@ -1,5 +1,6 @@
 @extends('layout')
 
+<div class='container'>
 @section('content')
     <h1>新しく情報を登録する</h1>
     {{ Form::open(['route' => 'detail.store', 'files' => true]) }}
@@ -85,5 +86,5 @@
         {{ Form::submit('新規作成する', ['class' => 'btn btn-outline-primary']) }}
     </div>
     {{ Form::close() }}
-
+</div>
 @endsection

@@ -1,5 +1,6 @@
 @extends('layout')
 
+<div class='container'>
 @section('content')
     <h1>{{$trek->name}}を編集する</h1>
     {{ Form::model($trek, ['route' => ['detail.update', $trek->id], 'files' => true]) }}
@@ -86,5 +87,5 @@
         {{ Form::submit('更新する', ['class' => 'btn btn-outline-primary']) }}
     </div>
     {{ Form::close() }}
-
+</div>
 @endsection

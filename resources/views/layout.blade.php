@@ -62,7 +62,6 @@
                 </ul>
             </div>
         </nav>
-        <div class='container'>
         @yield('content')
     </body>
 </html>

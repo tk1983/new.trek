@@ -33,25 +33,11 @@
   .gorgias-loaded{
   padding: 0;
 }
-  .bg-image {
-  background-image: url('../../images/top.jpg');
-  background-attachment: fixed;
-  background-size: cover;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-}
-.bg-mask {
-  height: 100%;
-  background: rgba(255,255,255,0.5);
-}
-td {
-  width: 400px;
+.card-wrap {
+  width: 800px;
 }
 </style>
-
-<div class="bg-image">
-  <div class="bg-mask">
+<div class='container'>
 
 @section('content')
 <br><br><br><br>
@@ -128,6 +114,7 @@ td {
                                     <div class="card-wrap">
                                       <div class="card">
                                         <div class="card-body">
+                                          <div style="display:inline-flex">
                                             <div class="row parts">
                                               <div id="like-icon-post-{{ $details->id }}">
                 
@@ -148,6 +135,7 @@ td {
                                             <div id="like-text-post-{{ $details->id }}">
                                               @include('post.like_text2')  
                                             </div>
+                                          </div>
                                             <!-- // ==========いいね終了========== --> 
                                         <!-- // ==========コメント開始========== -->
                                         <div id="comment-post-{{ $details->id }}">
@@ -180,9 +168,7 @@ td {
                     </div>
                     </div>
               <!-- // ==========コメント終了========== --> 
-
-            </div>
-          </div>
+        </div>
 <br>
 <br>
 @endsection

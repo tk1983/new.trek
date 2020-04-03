@@ -39,7 +39,8 @@
   height: 150px;
   border-radius: 50%;/*角の丸み*/
   background: skyblue; /*背景色*/
-  color: white;/*文字を白に*/
+  color: black;/*文字を白に*/
+  font-weight: bolder;
 }
 h1{
   padding: .25em 0 .25em .75em;
@@ -52,12 +53,6 @@ h1{
   margin: 0;
   border: 0;
 }
-
-/* 
-.parts {
-  margin: 12px 0;
-}
-*/
 .bg-image {
   background-image: url('../../images/top.jpg');
   width: 100%;
@@ -68,8 +63,11 @@ h1{
   height: 100%;
   background: rgba(255,255,255,0.5);
 }
+.form{
+  margin:0 0 0 auto;
+  }
 td {
-  width: 400px;
+  width: 40%;
 }
 </style>
 
@@ -84,6 +82,7 @@ td {
   </div>
 </div>
         
+<div class='container'>
         <form method="GET" action="/detail">
           <select class="btn btn-primary" name="narabi">
             <option value="asc">日付昇順で並び変え</option>
@@ -115,14 +114,17 @@ td {
         {{ $Trek->name }}
       </a>
       　投稿者：{{ $Trek->user->name }}
-
+      <br>
       @if ($Trek->image_url)
+      <a href={{ route('detail.detail', ['id' =>  $Trek->id]) }}>
       <img src={{ str_replace('public/', 'storage/', $Trek->image_url) }} width="100%" height="auto">
+      </a>
       @endif
 
     <!-- // ==========いいね開始========== -->
 
     <div class="card-body">
+      <div style="display:inline-flex">
         <div class="row parts">
           <div id="like-icon-post-{{ $Trek->id }}">
 
@@ -143,6 +145,7 @@ td {
         <div id="like-text-post-{{ $Trek->id }}">
           @include('post.like_text')  
         </div>
+      </div>
         <!-- // ==========いいね終了========== --> 
         <!-- // ==========コメント開始========== -->
                     <div id="comment-post-{{ $Trek->id }}">
@@ -153,7 +156,7 @@ td {
 
             @if (! Auth::check())
                     <div class="row actions" id="comment-form-post-{{ $Trek->id }}">
-                       <form class="w-100" id="new_comment" action="/detail" accept-charset="UTF-8" data-remote="true" method="get"><input name="utf8" type="hidden" value="✓" />
+                       <form class="w-100" id="new_comment" action="{{ route('login') }}" accept-charset="UTF-8" data-remote="true" method="get"><input name="utf8" type="hidden" value="✓" />
                          {{csrf_field()}} 
                         <input type="hidden" name="user_id" />
                         <input value="{{ $Trek->id }}" type="hidden" name="$trek_id" />
@@ -178,12 +181,16 @@ td {
     @endif
     @endforeach
   </table>
+</div>
 
+<div class="fixed_btn">
+<a href={{ route('detail.new') }} class='btn'>
         <button class="fixed_btn">
-        <div>
-            <a href={{ route('detail.new') }} class='btn btn-primary'>新しく登録</a>
-        </div>
+            新しく登録
         </button>
+      </a>
+    </div>
+
         <div class="d-flex justify-content-center">
           {{ $Treks->links() }}
         </div>

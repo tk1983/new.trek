@@ -20,6 +20,7 @@
     <div class="bg-mask">
 
 @section('content')
+<div class='container'>
     
 <br><br><br><br>
 <h1>{{ $users->name }}のページ</h1>
@@ -73,5 +74,5 @@
 </table>
 </div>
 </div>
-
+</div>
 @endsection

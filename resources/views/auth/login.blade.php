@@ -6,6 +6,13 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
+                
+                <br><br><br>
+                <div  style="text-align:center">
+                ゲストユーザ<br>
+                E-Mail：test@test<br>
+                Password：testtest<br><br>
+                </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
