@@ -14,6 +14,9 @@
   height: 100%;
   background: rgba(255,255,255,0.5);
 }
+.face{
+    border-radius: 50%;/*角の丸み*/
+}
 </style>
 
 <div class="bg-image">
@@ -27,7 +30,7 @@
 
 @if ($is_image)
 <figure>
-    <img src="/storage/profile_images/{{ Auth::id() }}.jpg" width="100px" height="100px">
+    <img class="face" src="/storage/profile_images/{{ Auth::id() }}.jpg" width="100px" height="100px">
     <figcaption>現在のプロフィール画像</figcaption>
 </figure>
 @endif
