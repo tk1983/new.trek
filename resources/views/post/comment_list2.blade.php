@@ -1,11 +1,10 @@
 @foreach ($details->comments as $comment) 
-  <div class="mb-2">
-
-    <div style="display:inline-flex">
+  <div class="mb-2 comment-block">
+    <div class="comment">
 
     @if ($is_image)
     <figure>
-      <img src="/storage/profile_images/{{ Auth::id() }}.jpg" width="50px" height="50px">
+      <img class="face" src="/storage/profile_images/{{ Auth::id() }}.jpg" width="50px" height="50px">
     </figure>
     @endif
     
@@ -29,3 +28,16 @@
   @endif
   @endif
 @endforeach
+<style type="text/css">
+    .face{
+        border-radius: 50%;/*角の丸み*/
+    }
+  .comment-block {
+      display: flex;
+      justify-content: space-between;
+  }
+  .comment {
+      display: flex;
+      flex-direction: row;
+  }
+</style>

@@ -30,8 +30,7 @@
   margin: 5px 0 0 10px;
   background-size: 11px !important;
 }
-.fixed_btn
-{
+.fixed_btn{
   position: fixed;
   bottom: 10px; 
   right: 10px;
@@ -41,6 +40,8 @@
   background: skyblue; /*背景色*/
   color: black;/*文字を白に*/
   font-weight: bolder;
+  border-style: solid;
+  border-width: 1ex;
 }
 h1{
   padding: .25em 0 .25em .75em;
@@ -63,9 +64,6 @@ h1{
   height: 100%;
   background: rgba(255,255,255,0.5);
 }
-.form{
-  margin:0 0 0 auto;
-  }
 td {
   width: 40%;
 }
