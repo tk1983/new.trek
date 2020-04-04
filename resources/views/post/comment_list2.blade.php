@@ -14,9 +14,9 @@
       </strong>
     </span>
     <span>{{ $comment->comment }}</span>
+  </div>
   @if (! Auth::check())
     </div>
-  </div>
   @else
   @if ($comment->user->id == Auth::user()->id)
   <form method="post" action="/comments2/{{ $comment->id }}">
@@ -24,7 +24,6 @@
     <input type="submit" value="削除" class="btn btn-danger btn-sm" onclick='return confirm("本当に削除しますか？");'>
     </form>
     
-  </div>
   </div>
 
   @endif
