@@ -1,6 +1,6 @@
 @foreach ($Trek->comments as $comment)
-  <div class="mb-2 comment-block">
-    <div class="comment">
+  <div class="mb-2 right-block">
+    <div class="right">
         @if ($is_image)
             <figure>
               <img class="face" src="/storage/profile_images/{{ Auth::id() }}.jpg" width="50px" height="50px">
@@ -14,6 +14,7 @@
         <span>{{ $comment->comment }}</span>
     </div>
     @if (! Auth::check())
+      </div>
     @else
         @if ($comment->user->id == Auth::user()->id)
             <div class="form">
@@ -30,11 +31,11 @@
     .face{
         border-radius: 50%;/*角の丸み*/
     }
-    .comment-block {
+    .right-block {
         display: flex;
         justify-content: space-between;
     }
-    .comment {
+    .right {
         display: flex;
         flex-direction: row;
     }

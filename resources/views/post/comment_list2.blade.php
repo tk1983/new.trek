@@ -1,6 +1,6 @@
 @foreach ($details->comments as $comment) 
-  <div class="mb-2 comment-block">
-    <div class="comment">
+  <div class="mb-2 right-block">
+    <div class="right">
 
     @if ($is_image)
     <figure>
@@ -15,6 +15,8 @@
     </span>
     <span>{{ $comment->comment }}</span>
   @if (! Auth::check())
+    </div>
+  </div>
   @else
   @if ($comment->user->id == Auth::user()->id)
   <form method="post" action="/comments2/{{ $comment->id }}">
@@ -32,11 +34,11 @@
     .face{
         border-radius: 50%;/*角の丸み*/
     }
-  .comment-block {
+  .right-block {
       display: flex;
       justify-content: space-between;
   }
-  .comment {
+  .right {
       display: flex;
       flex-direction: row;
   }
