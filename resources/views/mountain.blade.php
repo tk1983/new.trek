@@ -48,7 +48,7 @@
 <img src ="/{{ $image_url }}" width="100%" height="auto">
 @endif
 
-    <iframe src="https://maps.google.co.jp/maps?output=embed&q={{ $details->access }}"
+    <iframe src="https://maps.google.co.jp/maps?output=embed&q={{ $details->address }}"
         width='100%'
         height='320'
         frameborder='0'>
@@ -83,14 +83,14 @@
     </tr>            
     <tr>
         <td>住所</td>
-        <td><p>{{ $details->access }}</p></td>
+        <td><p>{{ $details->address }}</p></td>
     </tr>            
     <tr>
       <td>日数</td>
       <td><p>{{ $details->days }}</p></td>
     <tr>
         <td>コメント</td>
-        <td><p>{{ $details->gear }}</p></td>
+        <td><p>{{ $details->comment }}</p></td>
     </tr>
 </table>
 

@@ -125,8 +125,8 @@ class TrekController extends Controller
             'image_url' => 'required',
             'name' => 'required|min:2', 
             'difficulty' => 'required',
-            'access' => 'required|min:2',
-            'gear' => 'required|min:2'
+            'address' => 'required|min:2',
+            'comment' => 'required|min:2'
         ]);
 
         $time = date("YmdHis");
