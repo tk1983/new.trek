@@ -49,14 +49,14 @@
     </td></tr>
     <tr><td>
     <div class='form-group'>
-        {{ Form::label('access', '住所:') }}</div>
-        @if ($errors->has('access'))
-        <span class="error">{{ $errors->first('access')}}</span>
+        {{ Form::label('address', '住所:') }}</div>
+        @if ($errors->has('address'))
+        <span class="error">{{ $errors->first('address')}}</span>
         @endif
     </td>
     <td>
         <div class='form-group'>
-        {{ Form::text('access', null) }}
+        {{ Form::text('address', null) }}
     </div>
     </td></tr>
     <tr><td>
@@ -70,14 +70,14 @@
     </td></tr>
     <tr><td>
         <div class='form-group'>
-            {{ Form::label('gear', 'コメント:') }}</div>
-            @if ($errors->has('gear'))
-            <span class="error">{{ $errors->first('gear')}}</span>
+            {{ Form::label('comment', 'コメント:') }}</div>
+            @if ($errors->has('comment'))
+            <span class="error">{{ $errors->first('comment')}}</span>
             @endif
         </td>
         <td>
             <div class='form-group'>
-            {{ Form::text('gear', null) }}
+            {{ Form::textarea('comment', null) }}
         </div>
         </td></tr>
 </table>
