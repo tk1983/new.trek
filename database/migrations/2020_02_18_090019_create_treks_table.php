@@ -14,7 +14,7 @@ class CreateTreksTable extends Migration
     public function up()
     {
         Schema::create('treks', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')->unsigned();
             $table->string('name');
             $table->string('area');
             $table->string('difficulty');
