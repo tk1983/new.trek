@@ -15,13 +15,7 @@ class AddTrekIdToLikesTable extends Migration
     {
         Schema::table('likes', function (Blueprint $table) {
             
-            $table->bigInteger('trek_id')->unsigned();
-            
-            $table
-            ->foreign('trek_id')
-            ->references('id')
-            ->on('treks')
-            ->onDelete('cascade');
+
         });
     }
 
