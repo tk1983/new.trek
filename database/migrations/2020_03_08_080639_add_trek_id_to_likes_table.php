@@ -15,7 +15,7 @@ class AddTrekIdToLikesTable extends Migration
     {
         Schema::table('likes', function (Blueprint $table) {
             
-            $table->bigIncrements('trek_id')->unsigned();
+            $table->bigInteger('trek_id')->unsigned();
             
             $table
             ->foreign('trek_id')
