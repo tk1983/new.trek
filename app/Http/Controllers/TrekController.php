@@ -55,8 +55,8 @@ class TrekController extends Controller
             'image_url' => 'required',
             'name' => 'required|min:2', 
             'difficulty' => 'required',
-            'access' => 'required|min:2',
-            'gear' => 'required|min:2'
+            'address' => 'required|min:2',
+            'comment' => 'required|min:2'
         ]);
 
         $user = \Auth::user();
@@ -67,8 +67,8 @@ class TrekController extends Controller
         $trek->name = request('name');
         $trek->area = request('area');
         $trek->difficulty = request('difficulty');
-        $trek->access = request('access');
-        $trek->gear = request('gear');
+        $trek->address = request('address');
+        $trek->comment = request('comment');
         $trek->days = request('days');
         $trek->user_id = $user->id;
         $trek->save();
@@ -137,8 +137,8 @@ class TrekController extends Controller
         $trek->name = request('name');
         $trek->area = request('area');
         $trek->difficulty = request('difficulty');
-        $trek->access = request('access');
-        $trek->gear = request('gear');
+        $trek->address = request('address');
+        $trek->comment = request('comment');
         $trek->days = request('days');
         $trek->save();
         return redirect()->route('detail.detail', ['id' => $trek->id]);
