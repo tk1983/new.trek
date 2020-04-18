@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class trek extends Model
 {
+  protected $table = 'treks';
     public function user()
     {
         return $this->belongsTo('App\User');
