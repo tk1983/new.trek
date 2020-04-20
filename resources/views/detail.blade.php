@@ -146,7 +146,7 @@ h1{
       </div>
         <!-- // ==========いいね終了========== --> 
         <!-- // ==========コメント開始========== -->
-                    <div id="comment-post-{{ $Trek->id }}">
+                    <div>
                       @include('post.comment_list')
                     </div>
                     <a class="light-color post-time no-text-decoration" href="/mountain/{{ $Trek->id }}">{{ $Trek->created_at }}</a>
