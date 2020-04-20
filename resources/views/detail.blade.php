@@ -64,8 +64,8 @@ h1{
   height: 100%;
   background: rgba(255,255,255,0.5);
 }
-td {
-  width: 40%;
+.width {
+  width: 50%;
 }
 </style>
 
@@ -107,7 +107,7 @@ td {
     @if($loop->iteration %2 !=0)
     <tr>
     @endif
-    <td>
+    <td class="width">
       山の名前：<a href={{ route('detail.detail', ['id' =>  $Trek->id]) }}>
         {{ $Trek->name }}
       </a>

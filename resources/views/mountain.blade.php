@@ -36,6 +36,9 @@
 .card-wrap {
   width: 800px;
 }
+.width {
+  width: 50%;
+}
 </style>
 <div class='container'>
 
@@ -70,27 +73,27 @@
 
 <table class='table table-striped table-hover'>
     <tr>
-        <td>山の名前</td>
-        <td><p>{{ $details->name }}</p></td>
+        <td class="width">山の名前</td>
+        <td class="width"><p>{{ $details->name }}</p></td>
     </tr>
     <tr>
-        <td>エリア</td>
-        <td><p>{{ $details->area }}</p></td>
+        <td class="width">エリア</td>
+        <td class="width"><p>{{ $details->area }}</p></td>
     </tr>
     <tr>
-        <td>登山難度</td>
-        <td><p>{{ $details->difficulty }}</p></td>
+        <td class="width">登山難度</td>
+        <td class="width"><p>{{ $details->difficulty }}</p></td>
     </tr>            
     <tr>
-        <td>住所</td>
-        <td><p>{{ $details->address }}</p></td>
+        <td class="width">住所</td>
+        <td class="width"><p>{{ $details->address }}</p></td>
     </tr>            
     <tr>
-      <td>日数</td>
-      <td><p>{{ $details->days }}</p></td>
+      <td class="width">日数</td>
+      <td class="width"><p>{{ $details->days }}</p></td>
     <tr>
-        <td>コメント</td>
-        <td><p>{{ $details->comment }}</p></td>
+        <td class="width">コメント</td>
+        <td class="width"><p>{{ $details->comment }}</p></td>
     </tr>
 </table>
 
