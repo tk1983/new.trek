@@ -24,6 +24,7 @@
             </form>
         @endif
       </div>
+    </div>
     @endif
 @endforeach
 <style type="text/css">
