@@ -87,39 +87,24 @@ h1{
             <option value="desc">日付降順で並び変え</option>
           </select>
           <input class='btn btn-outline-primary' type="submit" value="送信">
-      </form>
-{{--
-      {{ Form::open(['method' => 'get']) }}
-    {{ csrf_field() }}
-    <div class='form-group'>
-        {{ Form::label('keyword', 'キーワード:') }}
-        {{ Form::text('keyword', null, ['class' => 'form-control']) }}
-    </div>
-    <div class='form-group'>
-        {{ Form::submit('検索', ['class' => 'btn btn-outline-primary'])}}
-        <a href={{ route('#') }}>クリア</a>
-    </div>
-      {{ Form::close() }}
---}}
+        </form>
 
 <table class='table table-striped table-hover'>
   @foreach ($Treks as $Trek)
     @if($loop->iteration %2 !=0)
     <tr>
-    @endif
-    <td class="width">
-      山の名前：<a href={{ route('detail.detail', ['id' =>  $Trek->id]) }}>
-        {{ $Trek->name }}
-      </a>
-      　投稿者：{{ $Trek->user->name }}
-      <br>
-      @if ($Trek->image_url)
-      <a href={{ route('detail.detail', ['id' =>  $Trek->id]) }}>
-      <img src={{ str_replace('public/', 'storage/', $Trek->image_url) }} width="100%" height="auto">
-      </a>
       @endif
-
-    <!-- // ==========いいね開始========== -->
+        <td class="width">
+          山の名前：<a href={{ route('detail.detail', ['id' =>  $Trek->id]) }}>
+        {{ $Trek->name }}
+        </a>
+      　投稿者：{{ $Trek->user->name }}
+        <br>
+      @if ($Trek->image_url)
+        <a href={{ route('detail.detail', ['id' =>  $Trek->id]) }}>
+        <img src={{ str_replace('public/', 'storage/', $Trek->image_url) }} width="100%" height="auto">
+        </a>
+      @endif
 
     <div class="card-body">
       <div style="display:inline-flex">
@@ -130,11 +115,11 @@ h1{
               <a class="love hide-text" data-remote="true" rel="nofollow" data-method="POST" href="{{ route('login') }}">いいね</a>
             @else
 
-            @if ($Trek->likedBy(Auth::user())->count() > 0)
+              @if ($Trek->likedBy(Auth::user())->count() > 0)
               <a class="loved hide-text" data-remote="true" rel="nofollow" data-method="DELETE" href="/likes/{{ $Trek->likedBy(Auth::user())->firstOrFail()->id }}">いいねを取り消す</a>
-            @else
+              @else
               <a class="love hide-text" data-remote="true" rel="nofollow" data-method="POST" href="/mountain/{{ $Trek->id }}/likes">いいね</a>
-            @endif
+              @endif
             @endif
 
           </div>
@@ -144,53 +129,51 @@ h1{
           @include('post.like_text')  
         </div>
       </div>
-        <!-- // ==========いいね終了========== --> 
-        <!-- // ==========コメント開始========== -->
-                    <div>
-                      @include('post.comment_list')
-                    </div>
-                    <a class="light-color post-time no-text-decoration" href="/mountain/{{ $Trek->id }}">{{ $Trek->created_at }}</a>
-                    <hr>
+        <div>
+          @include('post.comment_list')
+        </div>
+          <a class="light-color post-time no-text-decoration" href="/mountain/{{ $Trek->id }}">{{ $Trek->created_at }}</a>
+          <hr>
 
             @if (! Auth::check())
-                    <div class="row actions" id="comment-form-post-{{ $Trek->id }}">
-                       <form class="w-100" id="new_comment" action="{{ route('login') }}" accept-charset="UTF-8" data-remote="true" method="get"><input name="utf8" type="hidden" value="✓" />
-                         {{csrf_field()}} 
-                        <input type="hidden" name="user_id" />
-                        <input value="{{ $Trek->id }}" type="hidden" name="$trek_id" />
-                        <input class="form-control comment-input border-0" placeholder="コメントを投稿するにはログインをして下さい" autocomplete="off" type="text" name="comment" />
-                      </form>
-                    </div>
+              <div class="row actions" id="comment-form-post-{{ $Trek->id }}">
+                <form class="w-100" id="new_comment" action="{{ route('login') }}" accept-charset="UTF-8" data-remote="true" method="get"><input name="utf8" type="hidden" value="✓" />
+                  {{csrf_field()}} 
+                    <input type="hidden" name="user_id" />
+                    <input value="{{ $Trek->id }}" type="hidden" name="$trek_id" />
+                    <input class="form-control comment-input border-0" placeholder="コメントを投稿するにはログインをして下さい" autocomplete="off" type="text" name="comment" />
+                </form>
+              </div>
             @else
-            <div class="row actions" id="comment-form-post-{{ $Trek->id }}">
-              <form class="w-100" id="new_comment" action="/mountain/{{ $Trek->id }}/comments" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓" />
-                {{csrf_field()}} 
-               <input value="{{ Auth::user()->id }}" type="hidden" name="user_id" />
-               <input value="{{ $Trek->id }}" type="hidden" name="$trek_id" />
-               <input class="form-control comment-input border-0" placeholder="コメント ..." autocomplete="off" type="text" name="comment" />
-             </form>
-           </div>
+              <div class="row actions" id="comment-form-post-{{ $Trek->id }}">
+                <form class="w-100" id="new_comment" action="/mountain/{{ $Trek->id }}/comments" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓" />
+                  {{csrf_field()}} 
+                  <input value="{{ Auth::user()->id }}" type="hidden" name="user_id" />
+                  <input value="{{ $Trek->id }}" type="hidden" name="$trek_id" />
+                  <input class="form-control comment-input border-0" placeholder="コメント ..." autocomplete="off" type="text" name="comment" />
+                </form>
+              </div>
            @endif
-    <!-- // ==========コメント終了========== --> 
-
-    </td>
+        </td>
     @if($loop->iteration %2 ==0)
-    </tr>
+      </tr>
     @endif
-    @endforeach
-  </table>
-</div>
+    </div>
+  @endforeach
+</table>
 
 <div class="fixed_btn">
-<a href={{ route('detail.new') }} class='btn'>
-        <button class="fixed_btn">
-            新しく登録
-        </button>
-      </a>
-    </div>
+  <a href={{ route('detail.new') }} class='btn'>
+    <button class="fixed_btn">
+      新しく登録
+    </button>
+  </a>
+</div>
 
-        <div class="d-flex justify-content-center">
-          {{ $Treks->links() }}
-        </div>
+<div class="d-flex justify-content-center">
+  {{ $Treks->links() }}
+</div>
+</div>
+
 <br><br><br>
 @endsection
