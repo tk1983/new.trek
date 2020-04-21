@@ -18,14 +18,13 @@
   @if (! Auth::check())
     </div>
   @else
+</div>
   @if ($comment->user->id == Auth::user()->id)
   <form method="post" action="/comments2/{{ $comment->id }}">
     {{ csrf_field() }}
     <input type="submit" value="削除" class="btn btn-danger btn-sm" onclick='return confirm("本当に削除しますか？");'>
     </form>
     
-  </div>
-
   @endif
   @endif
 @endforeach
