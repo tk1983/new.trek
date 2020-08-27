@@ -38,7 +38,7 @@
   height: 150px;
   border-radius: 50%;/*角の丸み*/
   background: skyblue; /*背景色*/
-  color: black;/*文字を白に*/
+  color: black;/*文字色*/
   font-weight: bolder;
   border-style: solid;
   border-width: 1ex;
@@ -164,7 +164,7 @@ h1{
 
 <div class="fixed_btn">
   <a href={{ route('detail.new') }} class='btn'>
-    <button class="fixed_btn">
+    <button class="fixed_btn" data-trigger ="hover">
       新しく登録
     </button>
   </a>

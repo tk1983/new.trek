@@ -23,9 +23,10 @@ class TrekController extends Controller
     public function index(Request $request)
     {
         $Treks = Trek::order($request->narabi);
+        $user = User::find(1);
 
         $is_image = false;
-        if (Storage::disk('local')->exists('public/profile_images/' . Auth::id() . '.jpg')) {
+        if (Storage::disk('local')->exists('public/profile_images/' . $user->id . '.jpg')) {
             $is_image = true;
         }
 
@@ -51,9 +52,9 @@ class TrekController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [ 
+        $this->validate($request, [
             'image_url' => 'required',
-            'name' => 'required|min:2', 
+            'name' => 'required|min:2',
             'difficulty' => 'required',
             'address' => 'required|min:2',
             'comment' => 'required|min:2'
@@ -63,7 +64,7 @@ class TrekController extends Controller
         $time = date("YmdHis");
 
         $trek = new Trek;
-        $trek->image_url = $request->image_url->storeAs('public/post_images', $time.'_'.Auth::user()->id . '.jpg');
+        $trek->image_url = $request->image_url->storeAs('public/post_images', $time . '_' . Auth::user()->id . '.jpg');
         $trek->name = request('name');
         $trek->area = request('area');
         $trek->difficulty = request('difficulty');
@@ -81,7 +82,7 @@ class TrekController extends Controller
      * @param  \App\trek  $trek
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, trek $trek, $id)
+    public function show(Request $request, $id)
     {
         $details = Trek::find($id);
 
@@ -106,10 +107,10 @@ class TrekController extends Controller
      * @param  \App\trek  $trek
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, trek $trek, $id)
+    public function edit(Request $request, $id)
     {
         $trek = Trek::find($id);
-        return view ('edit', ['trek' => $trek]);
+        return view('edit', ['trek' => $trek]);
     }
 
     /**
@@ -119,11 +120,11 @@ class TrekController extends Controller
      * @param  \App\trek  $trek
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id, trek $trek)
+    public function update(Request $request, $id)
     {
-        $this->validate($request, [ 
+        $this->validate($request, [
             'image_url' => 'required',
-            'name' => 'required|min:2', 
+            'name' => 'required|min:2',
             'difficulty' => 'required',
             'address' => 'required|min:2',
             'comment' => 'required|min:2'
@@ -132,7 +133,7 @@ class TrekController extends Controller
         $time = date("YmdHis");
 
         $trek = Trek::find($id);
-        $trek->image_url = $request->image_url->storeAs('public/post_images', $time.'_'.Auth::user()->id . '.jpg');
+        $trek->image_url = $request->image_url->storeAs('public/post_images', $time . '_' . Auth::user()->id . '.jpg');
 
         $trek->name = request('name');
         $trek->area = request('area');

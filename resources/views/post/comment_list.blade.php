@@ -3,12 +3,12 @@
     <div class="right">
         @if ($is_image)
             <figure>
-              <img class="face" src="/storage/profile_images/{{ Auth::id() }}.jpg" width="50px" height="50px">
+              <img class="face" src="/storage/profile_images/{{ $comment->user->id }}.jpg" width="50px" height="50px">
             </figure>
         @endif
         <span>
           <strong>
-            <a class="no-text-decoration black-color" href="/users/{{ $comment->user->id }}">　{{ $comment->user->name }}</a>
+            <a class="no-text-decoration black-color" href="/users/{{ $comment->user->id }}">{{ $comment->user->name }}</a>
           </strong>
         </span>
         <span>{{ $comment->comment }}</span>
