@@ -23,14 +23,8 @@ class TrekController extends Controller
     public function index(Request $request)
     {
         $Treks = Trek::order($request->narabi);
-        $user = User::find(1);
 
-        $is_image = false;
-        if (Storage::disk('local')->exists('public/profile_images/' . $user->id . '.jpg')) {
-            $is_image = true;
-        }
-
-        return view('detail', ['is_image' => $is_image, 'Treks' => $Treks]);
+        return view('detail', ['Treks' => $Treks]);
     }
 
     /**

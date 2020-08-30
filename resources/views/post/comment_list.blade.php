@@ -1,9 +1,13 @@
 @foreach ($Trek->comments as $comment)
   <div class="mb-2 right-block">
     <div class="right">
-        @if ($is_image)
+        @if ($comment->trek->image_url)
             <figure>
               <img class="face" src="/storage/profile_images/{{ $comment->user->id }}.jpg" width="50px" height="50px">
+            </figure>
+        @else
+            <figure>
+              <img class="face" src="/storage/profile_images/blank_profile.png" width="50px" height="50px">
             </figure>
         @endif
         <span>
