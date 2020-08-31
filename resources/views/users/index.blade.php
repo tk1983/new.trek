@@ -28,10 +28,21 @@
 <br><br><br><br>
 <h1>{{ $users->name }}のページ</h1>
 
+<?php
+          $is_image = false;
+        if (Storage::disk('local')->exists('public/profile_images/' . $pic->image_url . '.jpg')) {
+            $is_image = true;
+        }
+?>
+
 @if ($is_image)
 <figure>
-    <img class="face" src="/storage/profile_images/{{ Auth::id() }}.jpg" width="100px" height="100px">
+    <img class="face" src="/storage/profile_images/{{ $pic->image_url }}.jpg" width="100px" height="100px">
     <figcaption>現在のプロフィール画像</figcaption>
+</figure>
+@else
+<figure>
+  <img class="face" src="/storage/profile_images/blank_profile.png" width="50px" height="50px">
 </figure>
 @endif
 

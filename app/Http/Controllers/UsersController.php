@@ -14,13 +14,11 @@ class UsersController extends Controller
     public function show($user_id)
     {
         $Treks = Trek::where('user_id', $user_id)->get();
+        $pic = Trek::first('user_id', $user_id)->get();
 
-        $is_image = false;
-        if (Storage::disk('local')->exists('public/profile_images/' . Auth::id() . '.jpg')) {
-            $is_image = true;
-        }
+        dd($pic->image_url);
         $users = User::find($user_id);
-        return view('users/index', ['is_image' => $is_image, 'users' => $users, 'user_id' => $user_id, 'Treks' => $Treks]);
+        return view('users/index', ['pic' => $pic, 'users' => $users, 'user_id' => $user_id, 'Treks' => $Treks]);
     }
 
     public function store(UsersRequest $request, $user_id)

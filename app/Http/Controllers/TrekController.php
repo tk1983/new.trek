@@ -87,12 +87,7 @@ class TrekController extends Controller
             $login_user_id = "";
         }
 
-        $is_image = false;
-        if (Storage::disk('local')->exists('public/profile_images/' . Auth::id() . '.jpg')) {
-            $is_image = true;
-        }
-
-        return view('mountain', ['is_image' => $is_image, 'details' => $details, 'login_user_id' => $login_user_id, 'image_url' => str_replace('public/', 'storage/', $details->image_url)]);
+        return view('mountain', ['details' => $details, 'login_user_id' => $login_user_id, 'image_url' => str_replace('public/', 'storage/', $details->image_url)]);
     }
 
     /**

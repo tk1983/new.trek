@@ -1,7 +1,13 @@
 @foreach ($Trek->comments as $comment)
+<?php
+          $is_image = false;
+        if (Storage::disk('local')->exists('public/profile_images/' . $comment->user->id . '.jpg')) {
+            $is_image = true;
+        }
+?>
   <div class="mb-2 right-block">
     <div class="right">
-        @if ($comment->trek->image_url)
+        @if ($is_image)
             <figure>
               <img class="face" src="/storage/profile_images/{{ $comment->user->id }}.jpg" width="50px" height="50px">
             </figure>

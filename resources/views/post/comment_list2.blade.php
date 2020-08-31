@@ -1,10 +1,20 @@
 @foreach ($details->comments as $comment) 
+<?php
+          $is_image = false;
+        if (Storage::disk('local')->exists('public/profile_images/' . $comment->user->id . '.jpg')) {
+            $is_image = true;
+        }
+?>
   <div class="mb-2 right-block">
     <div class="right">
 
     @if ($is_image)
       <figure>
-        <img class="face" src="/storage/profile_images/{{ Auth::id() }}.jpg" width="50px" height="50px">
+        <img class="face" src="/storage/profile_images/{{ $comment->user->id }}.jpg" width="50px" height="50px">
+      </figure>
+    @else
+      <figure>
+        <img class="face" src="/storage/profile_images/blank_profile.png" width="50px" height="50px">
       </figure>
     @endif
     
