@@ -30,14 +30,14 @@
 
 <?php
           $is_image = false;
-        if (Storage::disk('local')->exists('public/profile_images/' . $pic->image_url . '.jpg')) {
+        if (Storage::disk('local')->exists($pic->image_url)) {
             $is_image = true;
         }
 ?>
 
 @if ($is_image)
 <figure>
-    <img class="face" src="/storage/profile_images/{{ $pic->image_url }}.jpg" width="100px" height="100px">
+    <img class="face" src="/storage/profile_images/{{ $user_id }}.jpg" width="100px" height="100px">
     <figcaption>現在のプロフィール画像</figcaption>
 </figure>
 @else

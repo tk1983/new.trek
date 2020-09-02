@@ -14,9 +14,13 @@ class UsersController extends Controller
     public function show($user_id)
     {
         $Treks = Trek::where('user_id', $user_id)->get();
-        $pic = Trek::first('user_id', $user_id)->get();
 
-        dd($pic->image_url);
+        if (Trek::exists($user_id)) {
+            $pic = Trek::where('user_id', $user_id)->first();
+        } else {
+            $pic = "";
+        }
+
         $users = User::find($user_id);
         return view('users/index', ['pic' => $pic, 'users' => $users, 'user_id' => $user_id, 'Treks' => $Treks]);
     }

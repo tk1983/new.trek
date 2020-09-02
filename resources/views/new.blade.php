@@ -8,6 +8,9 @@
     <table class='table table-striped table-hover'>
         <tr><td>
             画像:
+        @if ($errors->has('image_url'))
+        <br><br><span class="error">{{ $errors->first('image_url')}}</span>
+        @endif
     </td>
     <td>
         <div class="form-image_url">
