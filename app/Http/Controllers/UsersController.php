@@ -15,14 +15,8 @@ class UsersController extends Controller
     {
         $Treks = Trek::where('user_id', $user_id)->get();
 
-        if (Trek::exists($user_id)) {
-            $pic = Trek::where('user_id', $user_id)->first();
-        } else {
-            $pic = "";
-        }
-
         $users = User::find($user_id);
-        return view('users/index', ['pic' => $pic, 'users' => $users, 'user_id' => $user_id, 'Treks' => $Treks]);
+        return view('users/index', ['users' => $users, 'user_id' => $user_id, 'Treks' => $Treks]);
     }
 
     public function store(UsersRequest $request, $user_id)

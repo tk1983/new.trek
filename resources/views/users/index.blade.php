@@ -30,7 +30,7 @@
 
 <?php
           $is_image = false;
-        if (Storage::disk('local')->exists($pic->image_url)) {
+        if (Storage::disk('local')->exists('public/profile_images/' . $user_id . '.jpg')) {
             $is_image = true;
         }
 ?>
@@ -42,7 +42,7 @@
 </figure>
 @else
 <figure>
-  <img class="face" src="/storage/profile_images/blank_profile.png" width="50px" height="50px">
+  <img class="face" src="/images/blank_profile.png" width="50px" height="50px">
 </figure>
 @endif
 
