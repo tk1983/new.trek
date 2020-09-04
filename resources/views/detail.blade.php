@@ -82,7 +82,7 @@ h1{
 <div class="bg-image">
   <div class="bg-mask">
     <br><br><br><br><br>
-    <p class="bg-text"><h1>登山初心者でも</h1></p>
+    <p class="bg-text"><h1>練習用修正２。登山初心者でも</h1></p>
     <p class="bg-text"><h1>安全にわかりやすく登山をするための</h1></p>
     <p class="bg-text"><h1>情報共有サイトです</h1></p>
   </div>
