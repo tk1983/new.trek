@@ -21,7 +21,12 @@ class UsersController extends Controller
 
     public function store(UsersRequest $request, $user_id)
     {
-        $request->photo->storeAs('public/profile_images', Auth::id() . '.jpg');
+        if (Storage::disk('local')->exists('public/profile_images/' . Auth::id() . '.jpg')) {
+            \File::delete('public/profile_images', Auth::id() . '.jpg');
+            $request->photo->storeAs('public/profile_images', Auth::id() . '.jpg');
+        } else {
+            $request->photo->storeAs('public/profile_images', Auth::id() . '.jpg');
+        }
 
         return redirect('/users/' . $user_id)->with('success', '新しい写真を登録しました');
     }
