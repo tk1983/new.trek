@@ -43,6 +43,14 @@
   border-style: solid;
   border-width: 1ex;
 }
+.fixed_btn:hover{
+  opacity: 0.6;
+}
+.fixed_btn:active{
+  -webkit-transform: translateY(2px);
+  transform: translateY(2px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}
 h1{
   padding: .25em 0 .25em .75em;
 }
@@ -163,8 +171,8 @@ h1{
 </table>
 
 <div class="fixed_btn">
-  <a href={{ route('detail.new') }} class='btn'>
-    <button class="fixed_btn" data-trigger ="hover">
+  <a href={{ route('detail.new') }} class='btn '>
+    <button class="fixed_btn">
       新しく登録
     </button>
   </a>
