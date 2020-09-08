@@ -72,9 +72,6 @@ h1{
   height: 100%;
   background: rgba(255,255,255,0.5);
 }
-.width {
-  width: 50%;
-}
 </style>
 
 @section('content')
@@ -97,7 +94,12 @@ h1{
           <input class='btn btn-outline-primary' type="submit" value="送信">
         </form>
 
-<table class='table table-striped table-hover'>
+<table class='table table-striped table-hover' style="table-layout: fixed;">
+  <colgroup>
+    <col style='width:50%;'>
+    <col style='width:50%;'>
+</colgroup>
+
   @foreach ($Treks as $Trek)
     @if($loop->iteration %2 !=0)
     <tr>
