@@ -16,6 +16,7 @@ class TrekController extends Controller
         $this->middleware('auth')->except(['index', 'show']);
     }
     /**
+     * 
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
