@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\trek;
+use App\Trek;
 use App\User;
 use App\Comment;
 use Illuminate\Http\Request;
