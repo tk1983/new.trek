@@ -9,9 +9,9 @@ use App\User;
 
 $factory->define(Model::class, function (Faker $faker) {
     return [
-        'name' => $faker->text(5),
+        'name' => $faker->text(10),
         'difficulty' => $faker->text(10),
-        'address' => $faker->text(20),
+        'address' => $faker->address(20),
         'days' => $faker->text(5),
         'comment' => $faker->text(50),
         'image_url' => $faker->text(30),
