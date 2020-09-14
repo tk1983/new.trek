@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class trek extends Model
+class Trek extends Model
 {
   protected $table = 'treks';
   public function user()

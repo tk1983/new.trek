@@ -6,15 +6,18 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Trek;
+use App\User;
 
 class BladeTest extends TestCase
 {
-    public function testTrekIndex()
+    public function testTrekDetail()
     {
-        $response = $this->get(route('detail.index'));
+        factory(Trek::class, 4)->create();
+
+        $response = $this->get('/mountain/1');
 
         $response->assertStatus(200)
-            ->assertViewIs('detail');
+            ->assertViewIs('mountain');
     }
     public function testTrekCreate()
     {
@@ -32,6 +35,8 @@ class BladeTest extends TestCase
     }
     public function testLogin()
     {
+        factory(User::class, 4)->create();
+
         $response = $this->get('/login');
 
         $response->assertStatus(200)
