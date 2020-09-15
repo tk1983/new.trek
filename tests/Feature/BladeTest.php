@@ -7,12 +7,20 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Trek;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class BladeTest extends TestCase
 {
+    public function testTrekIndex()
+    {
+        $response = $this->get(route('detail.index'));
+
+        $response->assertStatus(200)
+            ->assertViewIs('detail');
+    }
     public function testTrekDetail()
     {
-        factory(Trek::class, 4)->create();
+        factory(Trek::class, 1)->create();
 
         $response = $this->get('/mountain/1');
 
@@ -33,20 +41,28 @@ class BladeTest extends TestCase
         $response->assertStatus(302)
             ->assertRedirect('/login');
     }
-    public function testLogin()
-    {
-        factory(User::class, 4)->create();
-
-        $response = $this->get('/login');
-
-        $response->assertStatus(200)
-            ->assertViewIs('auth.login');
-    }
+    /**
+     *public function testLogin()
+     *{
+     *    factory(User::class, 1)->create();
+     *
+     *    $response = $this->get('/login');
+     *
+     *    $response->assertStatus(200)
+     *        ->assertViewIs('auth.login');
+     *}
+     */
     public function testRegister()
     {
         $response = $this->get('/register');
 
         $response->assertStatus(200)
             ->assertViewIs('auth.register');
+    }
+    public function testRootRedirect()
+    {
+        $response = $this->get('/');
+
+        $response->assertRedirect(route('detail.index'));
     }
 }
