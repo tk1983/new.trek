@@ -15,7 +15,7 @@ class LikeTest extends TestCase
     {
         factory(User::class, 1)->create();
 
-        $Trek = factory(Trek::class)->create();
+        $Trek = factory(Trek::class, 1)->create();
         $result = $Trek->LikedBy(null);
 
         $this->assertFalse($result);
