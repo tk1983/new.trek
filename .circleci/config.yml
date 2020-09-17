@@ -5,10 +5,10 @@ jobs:
       - image: circleci/php:7.3-node-browsers
     steps:
       steps:
-        - run:
-            name: Install PHP extensions
-            command: "sudo docker-php-ext-install pdo_mysql | sudo docker-php-ext-enable pdo_mysql"
         - checkout
+        - run: sudo apt update
+        - run: sudo docker-php-ext-install zip pdo_mysql
+        - run: sudo composer self-update
         - restore_cache:
             key: composer-v1-{{ checksum "composer.lock" }}
         - run: composer install -n --prefer-dist
