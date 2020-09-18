@@ -29,7 +29,6 @@ jobs:
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:3306 -timeout 1m
-      - run: php ./artisan --env=testing
       - run:
           name: php test
           command: vendor/bin/phpunit
