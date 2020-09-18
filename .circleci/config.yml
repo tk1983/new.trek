@@ -3,11 +3,33 @@ jobs:
   build:
     docker:
       - image: circleci/php:7.3-node-browsers
+      - image: circleci/mysql:5.7
+        environment:
+          - MYSQL_USER=root
+          - MYSQL_PASSWORD=
+          - MYSQL_ALLOW_EMPTY_PASSWORD=true
+          - MYSQL_DATABASE=trekkingdb_test
+          - DB_HOST: 127.0.0.1
     steps:
+      - run:
+          name: Install PHP extensions
+          command: |
+            sudo docker-php-ext-install pdo_mysql
+            sudo docker-php-ext-enable pdo_mysql
       - checkout
+      - restore_cache:
+          key: composer-v1-{{ checksum "composer.lock" }}
       - run: composer install -n --prefer-dist
+      - save_cache:
+          key: composer-v1-{{ checksum "composer.lock" }}
+          paths:
+            - vendor
       - run: npm ci
       - run: npm run dev
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:3306 -timeout 1m
+      - run: php ./artisan migrate --env=testing
       - run:
           name: php test
           command: vendor/bin/phpunit

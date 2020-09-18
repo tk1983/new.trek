@@ -7,7 +7,6 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Trek;
 use App\User;
-use Illuminate\Support\Facades\Auth;
 
 class TrekControllerTest extends TestCase
 {
