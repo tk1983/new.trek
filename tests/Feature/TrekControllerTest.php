@@ -7,24 +7,9 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Trek;
 use App\User;
-use Artisan;
 
 class TrekControllerTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function setUp(): void
-    {
-        parent::setUp();
-
-        Artisan::call('cache:clear');
-        Artisan::call('config:clear');
-        Artisan::call('optimize:clear');
-        Artisan::call('route:clear');
-    }
     public function testTrekIndex()
     {
         $response = $this->get(route('detail.index'));
