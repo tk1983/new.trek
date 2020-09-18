@@ -9,6 +9,8 @@ jobs:
           - MYSQL_PASSWORD=
           - MYSQL_ALLOW_EMPTY_PASSWORD=true
           - MYSQL_DATABASE=trekkingdb_test
+        environment:
+          - DB_HOST: 127.0.0.1
     steps:
       - run:
           name: Install PHP extensions
