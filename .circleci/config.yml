@@ -27,5 +27,8 @@ jobs:
       - run: npm ci
       - run: npm run dev
       - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:3306 -timeout 1m
+      - run:
           name: php test
           command: vendor/bin/phpunit
