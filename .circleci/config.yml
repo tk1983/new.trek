@@ -38,18 +38,18 @@ jobs:
 #            - node_modules
 #      - run: npm run dev
       - run:
-          name: DB_USERNAME
-          command: echo $DB_USERNAME
+          name: TEST_DB_USERNAME
+          command: echo $TEST_DB_USERNAME
       - run:
-          name: DB_DATABASE
-          command: echo $DB_DATABASE
+          name: TEST_DB_DATABASE
+          command: echo $TEST_DB_DATABASE
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:3306 -timeout 1m
       - run:
           name: test
           command: pwd
-      - run: php artisan migrate
+      - run: php artisan migrate --database=mysql_testing
       - run:
           name: php test
           command: vendor/bin/phpunit
