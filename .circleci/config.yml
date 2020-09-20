@@ -38,8 +38,11 @@ jobs:
 #            - node_modules
 #      - run: npm run dev
       - run:
-          name: test2
-          command: echo $MYSQL_DATABASE
+          name: DB_USERNAME
+          command: echo $DB_USERNAME
+      - run:
+          name: DB_DATABASE
+          command: echo $DB_DATABASE
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:3306 -timeout 1m
