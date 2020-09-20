@@ -49,7 +49,7 @@ jobs:
       - run:
           name: test
           command: pwd
-      - run: php artisan migrate --env=testing
+      - run: php artisan migrate
       - run:
           name: php test
           command: vendor/bin/phpunit
