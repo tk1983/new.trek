@@ -38,10 +38,10 @@ jobs:
 #            - node_modules
 #      - run: npm run dev
       - run:
-        name: test
+          name: test
           command: echo ${MYSQL_USER}
       - run:
-        name: test2
+          name: test2
           command: echo ${MYSQL_DATABASE}
       - run:
           name: Wait for db
