@@ -40,11 +40,12 @@ jobs:
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:3306 -timeout 1m
+      - run:
+          name: contextで設定した値を表示する
+          command: |
+            echo "${Value1}"
+            echo "${Value2}"
       - run: php ./artisan migrate --env=testing
       - run:
           name: php test
           command: vendor/bin/phpunit
-      - run:
-          name: test
-          command: |
-            echo ${access_key_id:0:-4}
