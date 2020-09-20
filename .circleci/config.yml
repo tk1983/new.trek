@@ -45,8 +45,8 @@ jobs:
           name: php test
           command: vendor/bin/phpunit
 workflows:
-  version: 2
+  version: 2.1
   build_and_deploy:
     jobs:
       - build:
-          context: trekkingdb
+          context: trekkingdb_test
