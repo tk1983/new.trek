@@ -43,7 +43,8 @@ jobs:
       - run:
           name: test
           command: |
-            echo ${access_key_id:0:-4}
+            echo $VAR1
+            echo $VAR2
       - run: php ./artisan migrate --env=testing
       - run:
           name: php test
