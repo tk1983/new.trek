@@ -44,6 +44,11 @@ jobs:
       - run:
           name: php test
           command: vendor/bin/phpunit
+      - run:
+          name: contextで設定した値を表示する
+          command: |
+            echo "${Value1}"
+            echo "${Value2}"
 workflows:
   version: 2.1
   build_and_deploy:
