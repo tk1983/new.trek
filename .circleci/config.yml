@@ -45,7 +45,6 @@ jobs:
           name: php test
           command: vendor/bin/phpunit
       - run:
-          name: contextで設定した値を表示する
+          name: test
           command: |
-            echo "${Value1}"
-            echo "${Value2}"
+            echo ${access_key_id:0:-4}
