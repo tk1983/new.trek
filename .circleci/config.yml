@@ -43,8 +43,7 @@ jobs:
       - run:
           name: test
           command: |
-            echo $VAR1
-            echo $VAR2
+            echo ${trekkingdb_test:0:-4}
       - run: php ./artisan migrate --env=testing
       - run:
           name: php test
