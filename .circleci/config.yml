@@ -8,7 +8,7 @@ jobs:
           - MYSQL_USER=root
           - MYSQL_PASSWORD=
           - MYSQL_ALLOW_EMPTY_PASSWORD=true
-          - MYSQL_DATABASE=trekkingdb_test
+          - MYSQL_DATABASE=himakuro_trekking_test
           - DB_HOST: 127.0.0.1
     steps:
       - run:
