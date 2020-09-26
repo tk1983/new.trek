@@ -10,6 +10,7 @@ use App\User;
 
 class TrekControllerTest extends TestCase
 {
+    use RefreshDatabase;
     public function testTrekIndex()
     {
         $response = $this->get(route('detail.index'));

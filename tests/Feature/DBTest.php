@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Schema;
 
 class DBTest extends TestCase
 {
+    use RefreshDatabase;
     public function testTreksDB()
     {
         $this->assertTrue(
