@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\trek;
+use App\Trek;
 use App\Http\Requests\UsersRequest;
 use App\User;
 use Illuminate\Http\Request;
@@ -14,8 +14,8 @@ class UsersController extends Controller
     public function show($user_id)
     {
         $Treks = Trek::where('user_id', $user_id)->get();
-
         $users = User::find($user_id);
+
         return view('users/index', ['users' => $users, 'user_id' => $user_id, 'Treks' => $Treks]);
     }
 
