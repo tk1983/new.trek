@@ -14,9 +14,10 @@ class UserControllerTest extends TestCase
     public function testUsers()
     {
         factory(Trek::class, 1)->create();
-        factory(User::class, 1)->create();
+        $user = factory(User::class, 1)->create()->first();
+        $user_id = $user->id;
 
-        $response = $this->get('/users/1');
+        $response = $this->get(route('users.show', ['user_id' => $user_id]));
 
         $response->assertStatus(200)
             ->assertViewIs('users.index');
