@@ -8,6 +8,7 @@ use Tests\TestCase;
 
 class HomeControllerTest extends TestCase
 {
+    use RefreshDatabase;
     public function testHome()
     {
         $response = $this->get(route('home'));
