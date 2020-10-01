@@ -36,7 +36,9 @@ jobs:
           key: npm-v1-{{ checksum "server/package-lock.json" }}
           paths:
             - node_modules
-      - run: npm run dev
+      - run: |
+          cd server/
+          npm run dev
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:3306 -timeout 1m
