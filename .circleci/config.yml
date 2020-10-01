@@ -44,4 +44,7 @@ jobs:
           php artisan migrate --database=mysql_testing --env=testing
       - run:
           name: php test
-          command: server/vendor/bin/phpunit server/tests/Feature/
+          command: |
+            cd server/
+            php artisan config:clear
+            vendor/bin/phpunit tests/Feature/
