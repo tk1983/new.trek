@@ -39,7 +39,9 @@ jobs:
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:3306 -timeout 1m
-      - run: php artisan migrate --database=mysql_testing --env=testing
+      - run: |
+          cd server/
+          php artisan migrate --database=mysql_testing --env=testing
       - run:
           name: php test
           command: server/vendor/bin/phpunit
