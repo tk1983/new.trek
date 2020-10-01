@@ -18,10 +18,10 @@ jobs:
             sudo docker-php-ext-enable pdo_mysql
       - checkout
       - restore_cache:
-          key: composer-v1-{{ checksum "composer.lock" }}
+          key: composer-v1-{{ checksum "server/composer.lock" }}
       - run: composer install -n --prefer-dist
       - save_cache:
-          key: composer-v1-{{ checksum "composer.lock" }}
+          key: composer-v1-{{ checksum "server/composer.lock" }}
           paths:
             - vendor
       - restore_cache:
