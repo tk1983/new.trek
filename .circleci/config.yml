@@ -18,14 +18,14 @@ jobs:
             sudo docker-php-ext-enable pdo_mysql
       - checkout
       - restore_cache:
-          key: composer-v1-{{ checksum "composer.lock" }}
-      - run: composer install -n --prefer-dist
+          key: composer-v1-{{ checksum "server/composer.lock" }}
+      - run: composer install -n --prefer-dist --working-dir=./server
       - save_cache:
-          key: composer-v1-{{ checksum "composer.lock" }}
+          key: composer-v1-{{ checksum "server/composer.lock" }}
           paths:
             - vendor
       - restore_cache:
-          key: npm-v1-{{ checksum "package-lock.json" }}
+          key: npm-v1-{{ checksum "server/package-lock.json" }}
       - run:
           name: npm ci
           command: |
@@ -33,14 +33,18 @@ jobs:
               npm ci
             fi
       - save_cache:
-          key: npm-v1-{{ checksum "package-lock.json" }}
+          key: npm-v1-{{ checksum "server/package-lock.json" }}
           paths:
             - node_modules
-      - run: npm run dev
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:3306 -timeout 1m
-      - run: php artisan migrate --database=mysql_testing --env=testing
+      - run: |
+          cd server/
+          php artisan migrate --database=mysql_testing --env=testing
       - run:
           name: php test
-          command: vendor/bin/phpunit
+          command: |
+            cd server/
+            php artisan config:clear
+            vendor/bin/phpunit
