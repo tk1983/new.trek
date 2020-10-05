@@ -38,6 +38,7 @@ class TrekController extends Controller
         $news = Trek::all();
         return view('new', ['news' => $news]);
     }
+
     /**
      * Store a newly created resource in storage.
      *
