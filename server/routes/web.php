@@ -41,9 +41,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::get('/sato', function () {
-     return view('sato');
-});
-Route::get('/call', function () {
-    return view('call');
 });
