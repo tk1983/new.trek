@@ -60,16 +60,7 @@ class TrekControllerTest extends TestCase
         $response->assertStatus(200)
             ->assertViewIs('new');
     }
-    public function testDestroy()
-    {
-        $trek = factory(Trek::class, 1)->create()->first();
-        $id = $trek->id;
-        $user = factory(User::class, 1)->create()->first();
 
-        $response = $this->actingAs($user)->delete(route('detail.destroy', ['id' => $id]));
-
-        $response->assertRedirect(route('detail.index'));
-    }
     public function testRootRedirect()
     {
         $response = $this->get('/');
