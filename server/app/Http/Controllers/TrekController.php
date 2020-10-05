@@ -33,13 +33,11 @@ class TrekController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
     public function create()
     {
         $news = Trek::all();
         return view('new', ['news' => $news]);
     }
-
     /**
      * Store a newly created resource in storage.
      *
