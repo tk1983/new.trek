@@ -86,6 +86,10 @@ h1{
 </div>
         
 <div class='container'>
+  <p class="text-center"><h1>ユーザーの声</h1></p>
+
+
+  <br><br>
         <form method="GET" action="/detail">
           <select class="btn btn-primary" name="narabi">
             <option value="asc">日付昇順で並び変え</option>
