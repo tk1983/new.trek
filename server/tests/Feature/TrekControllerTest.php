@@ -14,34 +14,51 @@ class TrekControllerTest extends TestCase
     public function testTrekIndex()
     {
         $response = $this->get(route('detail.index'));
-
         $response->assertStatus(200)
             ->assertViewIs('detail');
     }
     public function testTrekDetail()
     {
-        factory(Trek::class, 1)->create();
+        $trek = factory(Trek::class, 1)->create()->first();
+        $id = $trek->id;
 
-        $response = $this->get('/mountain/1');
-
+        $response = $this->get(route('detail.detail', ['id' => $id]));
         $response->assertStatus(200)
             ->assertViewIs('mountain');
     }
-    public function testTrekEdit()
+    public function testTrekEdit_nologin()
     {
+        $trek = factory(Trek::class, 1)->create()->first();
+        $id = $trek->id;
         factory(User::class, 1)->create();
 
-        $response = $this->get('/mountain/edit/1');
-
-        $response->assertStatus(302)
+        $response = $this->get(route('detail.edit', ['id' => $id]))
             ->assertRedirect('/login');
     }
-    public function testTrekCreate()
+    public function testTrekEdit_login()
+    {
+        $trek = factory(Trek::class, 1)->create()->first();
+        $id = $trek->id;
+        $user = factory(User::class, 1)->create()->first();
+
+        $response = $this->actingAs($user)->get(route('detail.edit', ['id' => $id]));
+        $response->assertStatus(200)
+            ->assertViewIs('edit');
+    }
+    public function testTrekCreate_nologin()
     {
         $response = $this->get(route('detail.new'));
 
         $response->assertStatus(302)
             ->assertRedirect('/login');
+    }
+    public function testTrekCreate_login()
+    {
+        $user = factory(User::class, 1)->create()->first();
+
+        $response = $this->actingAs($user)->get(route('detail.new'));
+        $response->assertStatus(200)
+            ->assertViewIs('new');
     }
     public function testRootRedirect()
     {
