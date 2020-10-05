@@ -32,18 +32,10 @@ Route::get('/mountain/{id}/likes2', 'LikesController@store2');
 Route::get('/likes/{like_id}', 'LikesController@destroy');
 Route::get('/likes2/{like_id}', 'LikesController@destroy2');
 
-Route::post('/mountain/{trek_id}/comments','CommentsController@store');
-Route::post('/mountain/{trek_id}/comments2','CommentsController@store2');
+Route::post('/mountain/{trek_id}/comments', 'CommentsController@store');
+Route::post('/mountain/{trek_id}/comments2', 'CommentsController@store2');
 Route::post('/comments/{comment_id}', 'CommentsController@destroy');
 Route::post('/comments2/{comment_id}', 'CommentsController@destroy2');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-
-
-Route::get('/sato', function () {
-     return view('sato');
-});
-Route::get('/call', function () {
-    return view('call');
-});

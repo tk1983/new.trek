@@ -60,6 +60,7 @@ class TrekControllerTest extends TestCase
         $response->assertStatus(200)
             ->assertViewIs('new');
     }
+
     public function testRootRedirect()
     {
         $response = $this->get('/');
