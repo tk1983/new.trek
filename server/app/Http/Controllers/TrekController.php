@@ -33,6 +33,7 @@ class TrekController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
         $news = Trek::all();
