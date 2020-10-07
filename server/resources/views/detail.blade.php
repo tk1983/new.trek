@@ -151,7 +151,7 @@ h1{
     <br><br><br><br><br>
     <p class="bg-text"><h1>登山初心者でも</h1></p>
     <p class="bg-text"><h1>安全にわかりやすく登山をするための</h1></p>
-    <p class="bg-text"><h1>情報共有サイトです</h1></p>
+    <p class="bg-text"><h1>情報共有サービスです</h1></p>
   </div>
 </div>
         
@@ -159,7 +159,7 @@ h1{
   <p class="center-block"><h1>ユーザーの声</h1></p>
     <table>
       <tr><td><img class="face" src="/storage/humanA.png" width="150px" height="150px"></td>
-        <td><div class='arrow_box'>スケジュール調整に役立った。登山口まで行くバスが、12時以降急激に減る事を知ることが出来た。それにより予定より早めに出発し、時間に余裕がもてた。</div></td>
+        <td><div class='arrow_box'>スケジュール調整に役立った。登山口まで行くバスが、12時以降急激に減る事を事前に知ることが出来た。それにより予定より早めに出発し、時間に余裕がもてた。</div></td>
         <td></td></tr>
       <tr><td></td>
         <td><div class='arrow_box_right'>安全に登山することができた。当初予定していた有名な山の登山難度が高く、頂上付近はひどく寒いようだった。自分のレベルにあった山に変更し、楽しく登山を終えることが出来た。</div></td>
