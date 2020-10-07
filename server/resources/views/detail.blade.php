@@ -149,8 +149,8 @@ h1{
 <div class="bg-image">
   <div class="bg-mask">
     <br><br><br><br><br>
-    <p class="bg-text"><h1>登山初心者でも</h1></p>
-    <p class="bg-text"><h1>安全にわかりやすく登山をするための</h1></p>
+    <p class="bg-text"><h1>登山初心者が</h1></p>
+    <p class="bg-text"><h1>より安全に、より快適に登山を楽しむための</h1></p>
     <p class="bg-text"><h1>情報共有サービスです</h1></p>
   </div>
 </div>
