@@ -5,13 +5,13 @@
         <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
         <meta name='csrf-token' content='{{ csrf_token() }}'>
         <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' >
-        <title>初心者向け登山情報.com</title>
+        <title>初心者向け登山情報.work</title>
         <style>body {padding-top: 80px;}</style>
         <script src='{{ asset("js/app.js") }}' defer></script>
     </head>
     <body>
         <nav class='navbar navbar-expand-md navbar-dark bg-dark fixed-top'>
-            <a class='navbar-brand' href={{route('detail.index')}}>初心者向け登山情報.com</a>
+            <a class='navbar-brand' href={{route('detail.index')}}>初心者向け登山情報.work</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
