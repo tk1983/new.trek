@@ -33,8 +33,8 @@
 
 ## アプリケーション内で使用している技術一覧
 
-- **AWS(EC2, RDS)**
+- **AWS(EC2, RDS、Route53)**
 - **CircleCI**
-- PHP/Laravel
+- PHP/Laravel(PHPUnit 含)
 - HTML/CSS/Bootstrap
 - Git/GitHub
