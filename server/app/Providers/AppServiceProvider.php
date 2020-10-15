@@ -16,7 +16,6 @@ class AppServiceProvider extends ServiceProvider
         //
     }
 
-    \Debugbar::enable();
     /**
      * Bootstrap any application services.
      *
