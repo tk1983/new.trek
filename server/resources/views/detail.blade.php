@@ -142,6 +142,13 @@ h1{
     left:100%;
     top:50%;
 }
+.center-block{
+  text-align: center;
+}
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
 </style>
 
 @section('content')
@@ -156,7 +163,8 @@ h1{
 </div>
         
 <div class='container'>
-  <p class="center-block"><h1>ユーザーの声</h1></p>
+  <div class='center-block'>
+  <p><h1>ユーザーの声</h1></p>
     <table>
       <tr><td><img class="face" src="/images/humanA.png" width="150px" height="150px"></td>
         <td><div class='arrow_box'>スケジュール調整に役立った。登山口まで行くバスが、12時以降急激に減る事を事前に知ることが出来た。それにより予定より早めに出発し、時間に余裕がもてた。</div></td>
@@ -168,6 +176,8 @@ h1{
         <td><div class='arrow_box'>登山情報を集める際の時間を短縮できた。様々な情報が載っているので、他の色々なサイトをめぐる必要が無かった。特にコメント欄は投稿者独自の視点からの意見があり、役立った。</div></td>
         <td></td></tr>
     </table>
+  </div>
+
 
   <br><br>
         <form method="GET" action="/detail">
