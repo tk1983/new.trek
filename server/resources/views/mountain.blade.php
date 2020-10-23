@@ -35,6 +35,7 @@
 }
 .card-wrap {
   width: 800px;
+    margin: 5px 0px 50px;
 }
 .width {
   width: 50%;
@@ -129,7 +130,7 @@
   
           @if (! Auth::check())
           <div class="row actions" id="comment-form-post-{{ $details->id }}">
-            <form class="w-100" id="new_comment" accept-charset="UTF-8" data-remote="true" method="get" action="/mountain/{{ $details->id }}" ><input name="utf8" type="hidden" value="✓" />
+            <form class="w-100" id="new_comment" accept-charset="UTF-8" data-remote="true" method="get" action="{{ route('login') }}" ><input name="utf8" type="hidden" value="✓" />
               {{csrf_field()}} 
                 <input type="hidden" name="user_id" />
                 <input value="{{ $details->id }}" type="hidden" name="$details_id" />
@@ -145,7 +146,8 @@
                 <input class="form-control comment-input border-0" placeholder="コメント ..." autocomplete="off" type="text" name="comment" />
             </form>
           </div>
-          @endif       
+          @endif   
+
         </div>
       </div>
     </div>
