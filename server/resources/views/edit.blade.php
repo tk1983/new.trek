@@ -1,5 +1,6 @@
 @extends('layout')
 
+<br><br><br><br>
 <div class='container'>
 @section('content')
     <h1>{{$trek->name}}を編集する</h1>
