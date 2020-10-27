@@ -2,6 +2,8 @@
 <meta http-equiv="refresh" content="5; URL=/detail">
 
 @section('content')
+
+<br><br><br><br><br><br><br>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
