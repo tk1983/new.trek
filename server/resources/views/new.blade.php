@@ -1,5 +1,6 @@
 @extends('layout')
 
+<br><br><br><br>
 <div class='container'>
 @section('content')
     <h1>新しく情報を登録する</h1>

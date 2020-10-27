@@ -47,11 +47,13 @@
 @endif
 
 @auth
-<form method="POST" action="/users/{{ $user_id }}" enctype="multipart/form-data" >
-    {{ csrf_field() }}
-    <input class='btn btn-primary' type="file" name="photo">
-    <input class='btn btn-primary' type="submit">
+@if ($user_id == $login_user_id)
+    <form method="POST" action="/users/{{ $user_id }}" enctype="multipart/form-data" >
+        {{ csrf_field() }}
+        <input class='btn btn-primary' type="file" name="photo">
+        <input class='btn btn-primary' type="submit">
 </form>
+@endif
 @endauth
 
 @if ($errors->any())
