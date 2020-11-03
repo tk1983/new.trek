@@ -178,21 +178,21 @@ table {
     </table>
   </div>
 
-
-  <br><br>
+  <br><hr><br>
         <form method="GET" action="/detail">
           <select class="btn btn-primary" name="narabi">
-            <option value="asc">更新日付昇順で並び変え</option>
-            <option value="desc">更新日付降順で並び変え</option>
+            <option value="asc">更新が古い投稿順で並び変え</option>
+            <option value="desc">更新が新しい投稿順で並び変え</option>
           </select>
-          <input class='btn btn-outline-primary' type="submit" value="送信">
+          <input class='btn btn-outline-primary' type="submit" value="実行">
         </form>
 
+<br>
 <table class='table table-striped table-hover' style="table-layout: fixed;">
   <colgroup>
     <col style='width:50%;'>
     <col style='width:50%;'>
-</colgroup>
+  </colgroup>
 
   @foreach ($Treks as $Trek)
     @if($loop->iteration %2 !=0)
@@ -271,7 +271,7 @@ table {
 <div class="fixed_btn">
   <a href={{ route('detail.new') }} class='btn '>
     <button class="fixed_btn">
-      新しく登録
+      新しく投稿
     </button>
   </a>
 </div>
