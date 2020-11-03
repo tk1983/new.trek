@@ -28,6 +28,13 @@ class TrekController extends Controller
         return view('detail', ['Treks' => $Treks]);
     }
 
+    public function narrow_down(Request $request)
+    {
+        $Treks = Trek::narrow_down($request->narrow_down);
+
+        return view('detail', ['Treks' => $Treks]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

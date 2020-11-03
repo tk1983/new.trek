@@ -187,6 +187,14 @@ table {
           <input class='btn btn-outline-primary' type="submit" value="実行">
         </form>
 
+        <form method="GET" action="/detail/narrow_down">
+          <select class="btn btn-primary" name="narrow_down">
+            <option value="hokkaido">北海道</option>
+            <option value="kanto">関東</option>
+          </select>
+          <input class='btn btn-outline-primary' type="submit" value="絞り込み">
+        </form>
+
 <br>
 <table class='table table-striped table-hover' style="table-layout: fixed;">
   <colgroup>
