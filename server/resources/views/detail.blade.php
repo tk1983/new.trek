@@ -181,10 +181,18 @@ table {
   <br><hr><br>
         <form method="GET" action="/detail">
           <select class="btn btn-primary" name="narabi">
-            <option value="asc">更新が古い投稿順で並び変え</option>
-            <option value="desc">更新が新しい投稿順で並び変え</option>
+            <option value="asc">更新が古い投稿順</option>
+            <option value="desc">更新が新しい投稿順</option>
           </select>
-          <input class='btn btn-outline-primary' type="submit" value="実行">
+          <input class='btn btn-outline-primary' type="submit" value="並び変え">
+        </form>
+
+        <form method="GET" action="/detail/narrow_down">
+          <select class="btn btn-primary" name="narrow_down">
+            <option value="hokkaido">北海道</option>
+            <option value="kanto">関東</option>
+          </select>
+          <input class='btn btn-outline-primary' type="submit" value="絞り込み">
         </form>
 
 <br>
@@ -207,7 +215,7 @@ table {
       @if ($Trek->image_url)
         <div class='hover_set'>
         <a href={{ route('detail.detail', ['id' =>  $Trek->id]) }}>
-        <img src={{ str_replace('public/', 'storage/', $Trek->image_url) }} width="100%" height="auto">
+        <img src={{ str_replace('public/', '/storage/', $Trek->image_url) }} width="100%" height="auto">
         </a>
         </div>
       @endif

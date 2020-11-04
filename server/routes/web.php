@@ -17,6 +17,7 @@ Route::get('/', function () {
     // return view('welcome');
 });
 Route::get('/detail', 'TrekController@index')->name('detail.index');
+Route::get('/detail/narrow_down', 'TrekController@narrow_down')->name('detail.narrow_down');
 Route::get('/mountain/new', 'TrekController@create')->name('detail.new');
 Route::post('/mountain/new', 'TrekController@store')->name('detail.store');
 Route::get('/mountain/{id}', 'TrekController@show')->name('detail.detail');

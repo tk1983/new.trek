@@ -36,4 +36,14 @@ class Trek extends Model
       return self::paginate(6);
     }
   }
+  public static function narrow_down($select)
+  {
+    if ($select == 'hokkaido') {
+      return self::orderBy('updated_at', 'desc')->where('area', '北海道')->paginate(6);
+    } elseif ($select == 'kanto') {
+      return self::orderBy('updated_at', 'desc')->where('area', '関東')->paginate(6);
+    } else {
+      return self::paginate(6);
+    }
+  }
 }
