@@ -26,6 +26,9 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
                     @guest
+                        <button type="submit" class="btn nav-item">
+                        　　<a href="/login/guest">ゲストログイン</a>　　
+                        </button>　
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>

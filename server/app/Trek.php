@@ -40,8 +40,20 @@ class Trek extends Model
   {
     if ($select == 'hokkaido') {
       return self::orderBy('updated_at', 'desc')->where('area', '北海道')->paginate(6);
+    } elseif ($select == 'tohoku') {
+      return self::orderBy('updated_at', 'desc')->where('area', '東北')->paginate(6);
     } elseif ($select == 'kanto') {
       return self::orderBy('updated_at', 'desc')->where('area', '関東')->paginate(6);
+    } elseif ($select == 'chubu') {
+      return self::orderBy('updated_at', 'desc')->where('area', '中部')->paginate(6);
+    } elseif ($select == 'kansai') {
+      return self::orderBy('updated_at', 'desc')->where('area', '関西')->paginate(6);
+    } elseif ($select == 'chugoku') {
+      return self::orderBy('updated_at', 'desc')->where('area', '中国')->paginate(6);
+    } elseif ($select == 'shikoku') {
+      return self::orderBy('updated_at', 'desc')->where('area', '四国')->paginate(6);
+    } elseif ($select == 'kyushu_okinawa') {
+      return self::orderBy('updated_at', 'desc')->where('area', '九州・沖縄')->paginate(6);
     } else {
       return self::paginate(6);
     }

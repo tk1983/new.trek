@@ -39,4 +39,5 @@ Route::post('/comments/{comment_id}', 'CommentsController@destroy');
 Route::post('/comments2/{comment_id}', 'CommentsController@destroy2');
 
 Auth::routes();
+Route::get('/login/guest', 'LoginController@guestLogin');
 Route::get('/home', 'HomeController@index')->name('home');
