@@ -184,14 +184,16 @@ select.narrow_down {
   <br><hr><br>
         <form method="GET" action="/detail">
           <select class="btn btn-primary narrow_down" name="narabi">
-            <option value="asc">更新が古い投稿順</option>
+            <option value="">-</option>
             <option value="desc">更新が新しい投稿順</option>
+            <option value="asc">更新が古い投稿順</option>
           </select>
           <input class='btn btn-outline-primary' type="submit" value="並び変え">
         </form>
 
         <form method="GET" action="/detail/narrow_down">
           <select class="btn btn-primary narrow_down" name="narrow_down">
+            <option value="">-</option>
             <option value="hokkaido">北海道</option>
             <option value="tohoku">東北</option>
             <option value="kanto">関東</option>
@@ -286,7 +288,7 @@ select.narrow_down {
 </table>
 
 <div class="fixed_btn">
-  <a href={{ route('detail.new') }} class='btn '>
+  <a href={{ route('detail.new') }} class='btn'>
     <button class="fixed_btn">
       新しく投稿
     </button>
