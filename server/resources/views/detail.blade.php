@@ -149,6 +149,9 @@ table {
     margin-left: auto;
     margin-right: auto;
 }
+select.narrow_down {
+  width:200px;
+}
 </style>
 
 @section('content')
@@ -180,7 +183,7 @@ table {
 
   <br><hr><br>
         <form method="GET" action="/detail">
-          <select class="btn btn-primary" name="narabi">
+          <select class="btn btn-primary narrow_down" name="narabi">
             <option value="asc">更新が古い投稿順</option>
             <option value="desc">更新が新しい投稿順</option>
           </select>
@@ -188,9 +191,15 @@ table {
         </form>
 
         <form method="GET" action="/detail/narrow_down">
-          <select class="btn btn-primary" name="narrow_down">
+          <select class="btn btn-primary narrow_down" name="narrow_down">
             <option value="hokkaido">北海道</option>
+            <option value="tohoku">東北</option>
             <option value="kanto">関東</option>
+            <option value="chubu">中部</option>
+            <option value="kansai">関西</option>
+            <option value="chugoku">中国</option>
+            <option value="shikoku">四国</option>
+            <option value="kyushu_okinawa">九州・沖縄</option>
           </select>
           <input class='btn btn-outline-primary' type="submit" value="絞り込み">
         </form>

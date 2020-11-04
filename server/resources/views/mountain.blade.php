@@ -125,7 +125,7 @@
           <div id="comment-post-{{ $details->id }}">
             @include('post.comment_list2')
           </div>
-            <a class="light-color post-time no-text-decoration" href="/mountain/{{ $details->id }}">{{ $details->created_at }}</a>
+            <a class="light-color post-time no-text-decoration" href="/mountain/{{ $details->id }}">更新：{{ $details->created_at }}</a>
             <hr>
   
           @if (! Auth::check())
